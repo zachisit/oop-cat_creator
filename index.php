@@ -17,9 +17,12 @@ $rex->getName();
 $tater->setWeight(1232);
 $tater->getWeight();
 
-$rex->setWeight(70658155033);
+$rex->setWeight(7065815504);
 $rex->getWeight();
 
+$rex->setGender("male");
+$rex->getGender();
 
+$tater->getGender();
 
 include "views/footer.php";
