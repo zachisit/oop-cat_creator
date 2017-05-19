@@ -12,9 +12,9 @@ class Cat {
     public $catWeight;//number
     public $catGender;//male or female
     public $catColoring;//calico, gray, brown, white, purple
-    public $catCurrentMood;//grumpy,sleeping,rowdy
-    public $catHairLength;//long or short haired
-    public $catCattitude;//bool
+    //public $catCurrentMood;//grumpy,sleeping,rowdy
+    //public $catHairLength;//long or short haired
+    //public $catCattitude;//bool
 
     /**
      * Cat constructor.
@@ -109,5 +109,19 @@ class Cat {
         }
         
         return;
+    }
+
+    public function setColoring($coloring) {
+        $this->catColoring = $coloring;
+
+        return;
+    }
+
+    public function getColoring() {
+        echo "the color of $this->catName is $this->catColoring.";
+
+        return;
+
+        //return $this->catColoring;//why does this not return?
     }
 }

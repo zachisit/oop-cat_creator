@@ -25,4 +25,8 @@ $rex->getGender();
 
 $tater->getGender();
 
+
+$tater->setColoring("purple");
+$tater->getColoring();
+
 include "views/footer.php";
