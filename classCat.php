@@ -45,7 +45,6 @@ class Cat {
      * @param $weight
      */
     public function setWeight($weight) {
-
         //check input to make sure it is numeric
         if (is_numeric($weight)) {
             $this->catWeight = $weight;
@@ -82,6 +81,15 @@ class Cat {
      */
     public function setColoring($coloring) {
         $this->catColoring = $coloring;
+    }
+
+    public function setAllowedColorings() {
+        $allowed_colorings = array (
+            '#000000' => 'black',
+            '#FF0000' => 'red',
+            '#FFFF00' => 'yellow',
+            '#0000FF' => 'blue'
+        );
     }
 
     /**

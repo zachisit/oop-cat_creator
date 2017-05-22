@@ -24,4 +24,5 @@ $bobcat = new Cat("Bobcat");
 $bobcat->setWeight("rar");
 echo $bobcat->getWeight();
 
+
 include "views/footer.php";
