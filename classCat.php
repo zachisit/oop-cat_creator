@@ -46,10 +46,14 @@ class Cat {
      */
     public function setWeight($weight) {
         //check input to make sure it is numeric
-        if (is_numeric($weight)) {
-            $this->catWeight = $weight;
+        if ( !is_numeric($weight) ) {
+            echo "ERROR 34343: Your input is not numeric. Please fix.";
+        } elseif ( $weight == 0 ) {
+            //check if input is exactly zero
+            echo "The weight of your cat should be more than zero. Please update.";
         } else {
-            echo "ERROR 34343: your input is not numeric. please fix.";
+            //set the input to the variable
+            $this->catWeight = $weight;
         }
     }
 
@@ -83,6 +87,9 @@ class Cat {
         $this->catColoring = $coloring;
     }
 
+    /**
+     * Set list of allowed cat colorings
+     */
     public function setAllowedColorings() {
         $allowed_colorings = array (
             '#000000' => 'black',
