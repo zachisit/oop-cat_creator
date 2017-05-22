@@ -26,9 +26,9 @@ class Cat {
         if (isset($name)) {
             $this->catName = $name;
 
-            echo "New Cat created, the name of the cat is $this->catName.<br /><br />";
+            echo "New Cat created, the name of the cat is $this->catName.<br />";
         } else {
-            echo "New Cat created, but does not have a name. Poor little dude. What will you call this new fluffy creature?<br /><br />";
+            echo "New Cat created, but does not have a name. Poor little dude. What will you call this new fluffy creature?<br />";
         }
     }
 
@@ -38,7 +38,6 @@ class Cat {
      */
     public function getName() {
         return $this->catName;
-
     }
 
     /**
@@ -46,7 +45,13 @@ class Cat {
      * @param $weight
      */
     public function setWeight($weight) {
-        $this->catWeight = $weight;
+
+        //check input to make sure it is numeric
+        if (is_numeric($weight)) {
+            $this->catWeight = $weight;
+        } else {
+            echo "ERROR 34343: your input is not numeric. please fix.";
+        }
     }
 
     /**
@@ -77,7 +82,6 @@ class Cat {
      */
     public function setColoring($coloring) {
         $this->catColoring = $coloring;
-
     }
 
     /**
