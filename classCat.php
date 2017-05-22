@@ -8,13 +8,13 @@
 
 class Cat {
     //main variables
-    public $catName;//string
-    public $catWeight;//number
-    public $catGender;//male or female
-    public $catColoring;//calico, gray, brown, white, purple
-    //public $catCurrentMood;//grumpy,sleeping,rowdy
-    //public $catHairLength;//long or short haired
-    //public $catCattitude;//bool
+    protected $catName;//string
+    protected $catWeight;//number
+    protected $catGender;//male or female
+    protected $catColoring;//calico, gray, brown, white, purple
+    //protected $catCurrentMood;//grumpy,sleeping,rowdy
+    //protected $catHairLength;//long or short haired
+    //protected $catCattitude;//bool
 
     /**
      * Cat constructor.
