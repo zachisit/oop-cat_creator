@@ -26,8 +26,11 @@ echo $bobcat->getWeight();
 
 echo "<p></p>";
 echo "<p></p>";
-$rex->setColoring("blacd");
+$rex->setColoring("barf");
 echo $rex->getColoring();
-echo $rex->checkIsColorApproved();
+echo "<br />";
+
+echo $rex->checkIsColorApproved() ? 1 : 0;
+//echo $rex->checkIsColorApproved();
 
 include "views/footer.php";

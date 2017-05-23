@@ -94,10 +94,10 @@ class Cat {
         //list of approved cat colors
         //related to hex colors
         $allowed_colorings = array (
-            '#000000' => 'black',
-            '#FF0000' => 'red',
-            '#FFFF00' => 'yellow',
-            '#0000FF' => 'blue'
+            'black' => '#000000',
+            'red' => '#FF0000',
+            'yellow' => '#FFFF00',
+            'blue' => '#0000FF'
         );
 
         return $allowed_colorings;
@@ -112,13 +112,10 @@ class Cat {
 
     /**
      * Check if the supplied color matches the approved cat colors
-     * @return int
+     * @return bool
      */
     public function checkIsColorApproved() {
-        if (in_array("$this->catColoring", $this->setAllowedColorings())) {
-            return 1; //true
-        } else {
-            return 0; //false
-        }
+        //return isset($array[$key])
+        return isset( $this->setAllowedColorings()[$this->catColoring] );
     }
 }
