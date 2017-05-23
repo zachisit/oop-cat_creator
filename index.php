@@ -24,5 +24,10 @@ $bobcat = new Cat("Bobcat");
 $bobcat->setWeight("rar");
 echo $bobcat->getWeight();
 
+echo "<p></p>";
+echo "<p></p>";
+$rex->setColoring("blacd");
+echo $rex->getColoring();
+echo $rex->checkIsColorApproved();
 
 include "views/footer.php";

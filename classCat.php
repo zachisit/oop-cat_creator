@@ -48,11 +48,11 @@ class Cat {
         //check input to make sure it is numeric
         if ( !is_numeric($weight) ) {
             echo "ERROR 34343: Your input is not numeric. Please fix.";
-        } elseif ( $weight == 0 ) {
-            //check if input is exactly zero
-            echo "The weight of your cat should be more than zero. Please update.";
-        } else {
-            //set the input to the variable
+        } //check if input is exactly zero
+        elseif ( $weight == 0 ) {
+            echo "ERROR 98998: The weight of your cat should be more than zero. Please update.";
+        } //set the input to the variable
+        else {
             $this->catWeight = $weight;
         }
     }
@@ -91,12 +91,16 @@ class Cat {
      * Set list of allowed cat colorings
      */
     public function setAllowedColorings() {
+        //list of approved cat colors
+        //related to hex colors
         $allowed_colorings = array (
             '#000000' => 'black',
             '#FF0000' => 'red',
             '#FFFF00' => 'yellow',
             '#0000FF' => 'blue'
         );
+
+        return $allowed_colorings;
     }
 
     /**
@@ -104,5 +108,17 @@ class Cat {
      */
     public function getColoring() {
         return $this->catColoring;
+    }
+
+    /**
+     * Check if the supplied color matches the approved cat colors
+     * @return int
+     */
+    public function checkIsColorApproved() {
+        if (in_array("$this->catColoring", $this->setAllowedColorings())) {
+            return 1; //true
+        } else {
+            return 0; //false
+        }
     }
 }
