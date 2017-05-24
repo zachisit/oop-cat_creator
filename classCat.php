@@ -12,9 +12,9 @@ class Cat {
     private $catWeight;//number
     private $catGender;//male or female
     private $catColoring;//array of approved colors
-    private $catCurrentMood;//array of approved mood
-    private $catHairLength;//long or short haired
-    //private $catCattitude;//bool
+    private $catCurrentMood;//array of approved moods
+    private $catHairLength;//array of approved hair lengths
+    private $catCattitude = 0;//bool
 
     /**
      * Cat constructor.
@@ -132,14 +132,14 @@ class Cat {
      * Set list of approved moods
      * @return array
      */
-    public function checkIsMoodApproved() {
+    public function setApprovedMood() {
         //list of approved moods
         $approved_moods = array(
-            'grumpy',
-            'sleepy',
-            'rowdy',
-            'thirsty',
-            'hungry'
+            'grumpy' => '0',
+            'sleepy' => '1',
+            'rowdy' => '2',
+            'thirsty' => '3',
+            'hungry' => '4'
         );
 
         return $approved_moods;
@@ -151,6 +151,15 @@ class Cat {
      */
     public function getMood() {
         return $this->catCurrentMood;
+    }
+
+    /**
+     * Check if supplied mood matches approved mood list
+     * @return bool
+     */
+    public function checkIsMoodApproved() {
+        //return isset($array[$key])
+        return isset( $this->setApprovedMood()[$this->catCurrentMood] );
     }
 
     /**
@@ -182,5 +191,14 @@ class Cat {
      */
     public function getHairLength() {
         return $this->catHairLength;
+    }
+
+    /**
+     * Set if cat has catitude or not
+     * @param $catitude
+     * @return mixed
+     */
+    public function setHasCatitude($catitude) {
+        return $this->catCattitude = $catitude;
     }
 }

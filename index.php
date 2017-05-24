@@ -37,7 +37,7 @@ echo "<br />";
 //echo $rex->checkIsColorApproved() ? 1 : 0;
 
 /*set and return mood with feedback response based on data */
-$rex->setMood("rowdy");
+$rex->setMood("thirsty");
 echo $rex->getName(). 'is currently ' . $rex->getMood() . '!';
 echo "<br />";
 echo "<br />";
@@ -60,10 +60,12 @@ switch($rex->getMood()) {
         echo 'your pug is thirsty! give '. $rex->getName() . ' some water!';
         break;
 }
+echo "<br />";
+echo "<br />";
+echo $rex->checkIsMoodApproved() ? 1 : 0;
+echo "<br />";
+echo "<br />";
 
-echo "<br />";
-echo "<br />";
-//echo $rex->checkIsMoodApproved() ? 1 : 0;
 
 /* set and return hair length */
 $rex->setHairLength('long');
