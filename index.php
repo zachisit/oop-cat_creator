@@ -52,6 +52,10 @@ switch($rex->getMood()) {
         break;
     case 'hungry':
         echo 'poor thing needs his food! give '. $rex->getName() . ' some food!';
+        //@TODO: change 'him' to be dynamic based on gender check
+        break;
+    case 'thirsty':
+        echo 'your pug is thirsty! give '. $rex->getName() . ' some water!';
         break;
 }
 

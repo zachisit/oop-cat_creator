@@ -136,6 +136,7 @@ class Cat {
             'grumpy',
             'sleepy',
             'rowdy',
+            'thirsty',
             'hungry'
         );
 
