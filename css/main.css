@@ -1,0 +1,61 @@
+/**
+ * Home Input Form
+ */
+.error {
+    background:red;
+    color:white;
+    text-align:center;
+    width:100%;
+    float:left;
+}
+form .entry {
+    text-align:center;
+    width:100%;
+    float:left;
+    color:#333;
+}
+form .entry label {
+    text-align:center;
+    font-size:18px;
+    float:left;
+    font-weight:900;
+    width:100%;
+    margin:20px 0 0 0;
+}
+form .entry input {
+    width:90%;
+    margin:0 auto;
+    padding:5px;
+    font-size:16px;
+    text-align:center;
+    border:1px solid #ccc;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+}
+form .entry #submit {
+    width:90%;
+    background:green;
+    padding:10px;
+    margin:20px auto;
+    display:table;
+    text-align:center;
+    color:white;
+    font-size:16px;
+    font-weight:500;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+}
+
+/**
+ * Footer
+ */
+footer {
+    width:100%;
+    float:left;
+    text-align:center;
+    font-size:13px;
+    color:#555;
+    margin:30px 0 0 0;
+}
