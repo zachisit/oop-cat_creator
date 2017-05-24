@@ -4,7 +4,7 @@
  * parent class for Cat
  */
 
-//namespace cat;
+namespace Cat;
 
 class Cat {
     //main variables
@@ -95,9 +95,10 @@ class Cat {
         //related to hex colors
         $allowed_colorings = array (
             'black' => '#000000',
-            'red' => '#FF0000',
-            'yellow' => '#FFFF00',
-            'blue' => '#0000FF'
+            'gray' => '#808080',
+            'brown' => '#A5682A',
+            'calico' => '#D5B185',
+            'white' => '#FFFFFF'
         );
 
         return $allowed_colorings;

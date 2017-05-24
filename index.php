@@ -2,6 +2,7 @@
 /**
  * homepage of the application
  */
+namespace Cat;
 
 include "views/header.php";
 
@@ -26,11 +27,10 @@ echo $bobcat->getWeight();
 
 echo "<p></p>";
 echo "<p></p>";
-$rex->setColoring("barf");
+$rex->setColoring("brown");
 echo $rex->getColoring();
 echo "<br />";
 
-echo $rex->checkIsColorApproved() ? 1 : 0;
-//echo $rex->checkIsColorApproved();
+//echo $rex->checkIsColorApproved() ? 1 : 0;
 
 include "views/footer.php";
