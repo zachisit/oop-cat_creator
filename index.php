@@ -65,5 +65,8 @@ echo "<br />";
 echo "<br />";
 //echo $rex->checkIsMoodApproved() ? 1 : 0;
 
+/* set and return hair length */
+$rex->setHairLength('long');
+echo $rex->getName() . '\'s length of hair is '. $rex->getHairLength();
 
 include "views/footer.php";

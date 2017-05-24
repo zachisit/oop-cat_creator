@@ -13,7 +13,7 @@ class Cat {
     private $catGender;//male or female
     private $catColoring;//array of approved colors
     private $catCurrentMood;//array of approved mood
-    //private $catHairLength;//long or short haired
+    private $catHairLength;//long or short haired
     //private $catCattitude;//bool
 
     /**
@@ -153,6 +153,34 @@ class Cat {
         return $this->catCurrentMood;
     }
 
+    /**
+     * Set length of hair for cat
+     * @param $hairlength
+     * @return mixed
+     */
+    public function setHairLength($hairlength) {
+        return $this->catHairLength = $hairlength;
+    }
 
+    /**
+     * Check if supplied hair length is approved
+     * @return array
+     */
+    public function checkIsHairLengthApproved() {
+        $approved_hairlength = array (
+            'short',
+            'long',
+            'hairless'
+        );
 
+        return $approved_hairlength;
+    }
+
+    /**
+     * Return hair length
+     * @return mixed
+     */
+    public function getHairLength() {
+        return $this->catHairLength;
+    }
 }
