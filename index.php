@@ -66,9 +66,36 @@ echo $rex->checkIsMoodApproved() ? 1 : 0;
 echo "<br />";
 echo "<br />";
 
-
 /* set and return hair length */
 $rex->setHairLength('long');
 echo $rex->getName() . '\'s length of hair is '. $rex->getHairLength();
+echo "<br />";
+echo "<br />";
+
+/* set and determind if cat has catitude */
+//echo $rex->getCatitudeStatus();
+
+switch($rex->getCatitudeStatus()) {
+    case 0:
+        echo 'currently '. $rex->getName() . ' does not have catitude. what a bummer.<br />';
+        break;
+    case 1:
+        echo 'currently '. $rex->getName() . ' does have catitude. nice!<br />';
+        break;
+}
+
+echo "<br />";
+$rex->setHasCatitude(1);
+switch($rex->getCatitudeStatus()) {
+    case 0:
+        echo 'currently '. $rex->getName() . ' does not have catitude. what a bummer.<br />';
+        break;
+    case 1:
+        echo 'currently '. $rex->getName() . ' does have catitude. nice!<br />';
+        break;
+}
+
+
+
 
 include "views/footer.php";

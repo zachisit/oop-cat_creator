@@ -197,8 +197,17 @@ class Cat {
      * Set if cat has catitude or not
      * @param $catitude
      * @return mixed
+     * @reference http://pink73.tripod.com/cats/catitude2.jpg
      */
     public function setHasCatitude($catitude) {
         return $this->catCattitude = $catitude;
+    }
+
+    /**
+     * Return if cat has catitude
+     * @return int
+     */
+    public function getCatitudeStatus() {
+        return $this->catCattitude;
     }
 }
