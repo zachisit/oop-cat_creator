@@ -120,15 +120,17 @@ class Cat {
         return isset( $this->setAllowedColorings()[$this->catColoring] );
     }
 
-    /*
+    /**
      * Set the mood of the cat
+     * @param $mood/
      */
     public function setMood($mood) {
         $this->catCurrentMood = $mood;
     }
 
-    /*
+    /**
      * Set list of approved moods
+     * @return array
      */
     public function checkIsMoodApproved() {
         //list of approved moods
@@ -143,8 +145,9 @@ class Cat {
         return $approved_moods;
     }
 
-    /*
+    /**
      * Return current mood of cat
+     * @return mixed
      */
     public function getMood() {
         return $this->catCurrentMood;
