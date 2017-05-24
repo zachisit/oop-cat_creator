@@ -24,13 +24,40 @@ echo 'The weight of '. $rex->getName() . ' is ' . $rex->getWeight() . ' and the 
 $bobcat = new Cat("Bobcat");
 $bobcat->setWeight("rar");
 echo $bobcat->getWeight();
+echo "<br />";
+echo "<br />";
 
-echo "<p></p>";
-echo "<p></p>";
+/* set and return color */
 $rex->setColoring("brown");
 echo $rex->getColoring();
 echo "<br />";
-
+echo "<br />";
 //echo $rex->checkIsColorApproved() ? 1 : 0;
+
+/*set and return mood with feedback response based on data */
+$rex->setMood("rowdy");
+echo $rex->getName(). 'is currently ' . $rex->getMood() . '!';
+echo "<br />";
+echo "<br />";
+switch($rex->getMood()) {
+    case 'grumpy':
+        echo 'uh oh, watch out - '. $rex->getName() .' is grumpy!';
+        break;
+    case 'sleepy':
+        echo 'oh no, ' . $rex->getName() . ' is super sleepy. put this pug to bed!';
+        break;
+    case 'rowdy':
+        echo 'be careful, '. $rex->getName() . 'just tore up the living room. this pug is rowdy! let him outside';
+        //@TODO: change 'him' to be dynamic based on gender check
+        break;
+    case 'hungry':
+        echo 'poor thing needs his food! give '. $rex->getName() . ' some food!';
+        break;
+}
+
+echo "<br />";
+echo "<br />";
+//echo $rex->checkIsMoodApproved() ? 1 : 0;
+
 
 include "views/footer.php";

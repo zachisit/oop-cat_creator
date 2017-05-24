@@ -11,8 +11,8 @@ class Cat {
     private $catName;//string
     private $catWeight;//number
     private $catGender;//male or female
-    private $catColoring;//calico, gray, brown, white, purple
-    //private $catCurrentMood;//grumpy,sleeping,rowdy
+    private $catColoring;//array of approved colors
+    private $catCurrentMood;//array of approved mood
     //private $catHairLength;//long or short haired
     //private $catCattitude;//bool
 
@@ -119,4 +119,36 @@ class Cat {
         //return isset($array[$key])
         return isset( $this->setAllowedColorings()[$this->catColoring] );
     }
+
+    /*
+     * Set the mood of the cat
+     */
+    public function setMood($mood) {
+        $this->catCurrentMood = $mood;
+    }
+
+    /*
+     * Set list of approved moods
+     */
+    public function checkIsMoodApproved() {
+        //list of approved moods
+        $approved_moods = array(
+            'grumpy',
+            'sleepy',
+            'rowdy',
+            'hungry'
+        );
+
+        return $approved_moods;
+    }
+
+    /*
+     * Return current mood of cat
+     */
+    public function getMood() {
+        return $this->catCurrentMood;
+    }
+
+
+
 }
