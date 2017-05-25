@@ -10,7 +10,7 @@ require_once "classCat.php";
 
 /* create new cat called Tater */
 $tater = new Cat("Tater B. Arfoluem");
-$tater->setGender("female");
+$tater->setGender("Male");
 $tater->setWeight(23223);
 $tater->setColoring("calico");
 echo 'The weight of '. $tater->getName() . ' is ' . $tater->getWeight() . ' and the Gender is ' . $tater->getGender() . ' and ' . $tater->getName() . '\'s color is ' . $tater->getColoring() . '. Pretty groovy.<br /><br />';
@@ -37,13 +37,13 @@ echo "<br />";
 echo "<br />";
 //echo $rex->checkIsColorApproved() ? 1 : 0;
 
-/*set and return mood with feedback response based on data */
+/* set and return mood with feedback response based on data */
 $rex->setMood("rowdy");
 echo $rex->getName(). 'is currently ' . $rex->getMood() . '!';
 echo "<br />";
 echo "<br />";
 
-
+//@TODO: i am torn if i should move this to a class method, or if i should leave in this page. i guess it will depend on how this app evolves when we start creating the user input phase
 switch( $rex->getMood() ) {
     case 'grumpy':
         echo 'Uh oh, watch out - '. $rex->getName() .' is grumpy!';
@@ -55,7 +55,7 @@ switch( $rex->getMood() ) {
         echo 'Be careful, '. $rex->getName() . 'just tore up the living room. This pug is rowdy! Let '. $rex->returnGenderPronounUsage() . ' outside!!';
         break;
     case 'hungry':
-        echo 'Ppoor thing needs his food! Give '. $rex->getName() . ' some food!';
+        echo 'Poor thing needs his food! Give '. $rex->getName() . ' some food!';
         break;
     case 'thirsty':
         echo 'Your pug is thirsty! Give '. $rex->getName() . ' some water!';
@@ -63,7 +63,7 @@ switch( $rex->getMood() ) {
 }
 echo "<br />";
 echo "<br />";
-echo $rex->checkIsMoodApproved() ? 1 : 0;
+//echo $rex->checkIsMoodApproved() ? 1 : 0;
 echo "<br />";
 echo "<br />";
 
@@ -75,7 +75,7 @@ echo "<br />";
 
 /* set and determind if cat has catitude */
 //echo $rex->getCatitudeStatus();
-
+//@TODO: i am torn if i should move this to a class method, or if i should leave in this page. i guess it will depend on how this app evolves when we start creating the user input phase
 switch($rex->getCatitudeStatus()) {
     case 0:
         echo 'currently '. $rex->getName() . ' does not have catitude. what a bummer.<br />';
@@ -87,6 +87,7 @@ switch($rex->getCatitudeStatus()) {
 
 echo "<br />";
 $tater->setHasCatitude(1);
+//@TODO: i am torn if i should move this to a class method, or if i should leave in this page. i guess it will depend on how this app evolves when we start creating the user input phase
 switch($tater->getCatitudeStatus()) {
     case 0:
         echo 'currently '. $tater->getName() . ' does not have catitude. what a bummer.<br />';

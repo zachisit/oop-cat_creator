@@ -69,7 +69,8 @@ class Cat {
      * @param $gender
      */
     public function setGender($gender) {
-        $this->catGender = $gender;
+        $this->catGender = strtolower($gender);
+        //note: it will not be needed to use strtolower in later phases of this application, since when user will fill out the input form to create the cat the gender options will be radio buttons and not text input fields. but good to test and use this phase of the app
     }
 
     /**
@@ -99,6 +100,7 @@ class Cat {
      * @return null|string
      */
     public function returnGenderPronounUsage() {
+        //note: i guess instead of writing a switch to determine proper pronoun usage, i could change the setAllowedGender $approved_gender array to be 'male' => 'him' - but for now i am happy with this implementation
         //var to get the current gender
         $existing_pronoun = $this->getGender();
         //var to be used in our switch and to be returned
