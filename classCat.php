@@ -2,6 +2,11 @@
 /**
  * class Cat
  * parent class for Cat
+ *
+ *
+ * @comment From Max:
+ * All of your pre-function comment blocks should include "@return type" where type is a pipe separated list of return
+ * types, e.g. getName() should include "@return string|null"
  */
 
 namespace Cat;
@@ -11,9 +16,14 @@ class Cat {
     private $catName;//string
     private $catWeight;//number
     private $catGender;//male or female
+
+    /** @comment Shouldn't these be the value for the current cat, not array? */
     private $catColoring;//array of approved colors
     private $catCurrentMood;//array of approved moods
     private $catHairLength;//array of approved hair lengths
+    /********************************/
+
+    /** @comment bool vars should only be true/false (not 0/1) */
     private $catCattitude = 0;//bool
 
     /**
@@ -23,9 +33,14 @@ class Cat {
     public function __construct($name)
     {
         //if name of cat passed in, then run the following
+
+        /** @comment If you remove the echos, this entire if/else block can be shortened to:
+         *  $this->catName = $name ?? null;
+         */
         if (isset($name)) {
             $this->catName = $name;
 
+            /** @comment echoing inside a constructor is bad practice. */
             echo "New Cat created, the name of the cat is $this->catName.<br />";
         } else {
             echo "New Cat created, but does not have a name. Poor little dude. What will you call this new fluffy creature?<br />";
@@ -37,6 +52,11 @@ class Cat {
      * @param none
      */
     public function getName() {
+        /** consider changing this to:
+         * return $this->catName ?? ''
+         * You might do this because you want to be sure that you are always returning a string.  If catName was never
+         * set you might return null.
+         */
         return $this->catName;
     }
 
@@ -69,7 +89,10 @@ class Cat {
      * @param $gender
      */
     public function setGender($gender) {
+        /** @comment Don't you want to validate $gender? */
         $this->catGender = strtolower($gender);
+
+        /** @comment, please try to keep all lines <= 120 characters */
         //note: it will not be needed to use strtolower in later phases of this application, since when user will fill out the input form to create the cat the gender options will be radio buttons and not text input fields. but good to test and use this phase of the app
     }
 
@@ -82,6 +105,7 @@ class Cat {
 
     /**
      * Set list approved genders
+     * @comment Consider replacing this method with a private static class variable.
      * @return array
      */
     public function setAllowedGenders() {
@@ -100,6 +124,7 @@ class Cat {
      * @return null|string
      */
     public function returnGenderPronounUsage() {
+        /** @comment - Your note here is spot on :) */
         //note: i guess instead of writing a switch to determine proper pronoun usage, i could change the setAllowedGender $approved_gender array to be 'male' => 'him' - but for now i am happy with this implementation
         //var to get the current gender
         $existing_pronoun = $this->getGender();
@@ -115,7 +140,7 @@ class Cat {
                 $current_gender = "him";
                 return $current_gender;
                 break;
-            case 'gender fluid':
+            case 'gender fluid': /** @comment instead of case 'gender fluid':, consider just saying default: */
                 $current_gender = "it";
                 return $current_gender;
                 break;
@@ -124,6 +149,7 @@ class Cat {
 
     /**
      * Check if the supplied gender matches approved genders
+     * @comment Validation methods should generally be private and run inside the setter.
      * @return bool
      */
     public function checkIsGenderApproved() {
@@ -135,6 +161,7 @@ class Cat {
      * @param $coloring
      */
     public function setColoring($coloring) {
+        /** @comment You should validate the coloring before setting it */
         $this->catColoring = $coloring;
     }
 
@@ -157,6 +184,10 @@ class Cat {
 
     /**
      * Return color of cat
+     * @comment consider adding a parameter to this function, something like:
+     * getColoring($context = 'name')
+     * Then accept name or color_code as the context and you can do getColoring('color_code') to return the hex code
+     * By default you'd still return the name
      */
     public function getColoring() {
         return $this->catColoring;
@@ -164,6 +195,7 @@ class Cat {
 
     /**
      * Check if the supplied color matches the approved cat colors
+     * @comment Same comment as on line 152
      * @return bool
      */
     public function checkIsColorApproved() {
@@ -217,6 +249,7 @@ class Cat {
      * @return mixed
      */
     public function setHairLength($hairlength) {
+        /** @comment this will always return true, was that intentional? */
         return $this->catHairLength = $hairlength;
     }
 
@@ -247,6 +280,7 @@ class Cat {
      * @param $catitude
      * @return mixed
      * @reference http://pink73.tripod.com/cats/catitude2.jpg
+     * @comment Same comment as on line 252
      */
     public function setHasCatitude($catitude) {
         return $this->catCattitude = $catitude;
