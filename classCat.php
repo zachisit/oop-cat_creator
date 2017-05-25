@@ -93,7 +93,7 @@ class Cat {
 
         return $approved_gender;
     }
-
+    
     /**
      * Check if the supplied gender matches approved genders
      * @return bool
