@@ -43,30 +43,16 @@ echo $rex->getName(). 'is currently ' . $rex->getMood() . '!';
 echo "<br />";
 echo "<br />";
 
-/* check current gender to be used for proper pronoun in the below switch ( $rex->getMood() )feedback to user */
-//@TODO: should this be a method in the class?
-switch ( $rex->getGender() ) {
-    case 'female':
-        $current_gender = "her";
-        break;
-    case 'male':
-        $current_gender = "him";
-        break;
-    case 'gender fluid':
-        $current_gender = "it";
-        break;
-}
-//echo $current_gender;
 
 switch( $rex->getMood() ) {
     case 'grumpy':
         echo 'Uh oh, watch out - '. $rex->getName() .' is grumpy!';
         break;
     case 'sleepy':
-        echo 'Oh no, ' . $rex->getName() . ' is super sleepy. Put '. $current_gender . ' pug to bed!';
+        echo 'Oh no, ' . $rex->getName() . ' is super sleepy. Put '. $rex->returnGenderPronounUsage() . ' pug to bed!';
         break;
     case 'rowdy':
-        echo 'Be careful, '. $rex->getName() . 'just tore up the living room. This pug is rowdy! Let '. $current_gender . ' outside!!';
+        echo 'Be careful, '. $rex->getName() . 'just tore up the living room. This pug is rowdy! Let '. $rex->returnGenderPronounUsage() . ' outside!!';
         break;
     case 'hungry':
         echo 'Ppoor thing needs his food! Give '. $rex->getName() . ' some food!';

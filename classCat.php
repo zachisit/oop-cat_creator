@@ -93,7 +93,33 @@ class Cat {
 
         return $approved_gender;
     }
-    
+
+    /**
+     * Check current Gender to return pronoun to be used
+     * @return null|string
+     */
+    public function returnGenderPronounUsage() {
+        //var to get the current gender
+        $existing_pronoun = $this->getGender();
+        //var to be used in our switch and to be returned
+        $current_gender = NULL;
+
+        switch ($existing_pronoun) {
+            case 'female':
+                $current_gender = "her";
+                return $current_gender;
+                break;
+            case 'male':
+                $current_gender = "him";
+                return $current_gender;
+                break;
+            case 'gender fluid':
+                $current_gender = "it";
+                return $current_gender;
+                break;
+        }
+    }
+
     /**
      * Check if the supplied gender matches approved genders
      * @return bool
