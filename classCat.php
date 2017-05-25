@@ -51,7 +51,7 @@ class Cat {
         } //check if input is exactly zero
         elseif ( $weight == 0 ) {
             echo "ERROR 98998: The weight of your cat should be more than zero. Please update.";
-        } //set the input to the variable
+        } //if input is ok, then set the input to the variable
         else {
             $this->catWeight = $weight;
         }
@@ -77,6 +77,29 @@ class Cat {
      */
     public function getGender() {
         return $this->catGender;
+    }
+
+    /**
+     * Set list approved genders
+     * @return array
+     */
+    public function setAllowedGenders() {
+        //list approved genders
+        $approved_gender = array (
+            'male' => 0,
+            'female' => 1,
+            'gender fluid' => 2
+        );
+
+        return $approved_gender;
+    }
+
+    /**
+     * Check if the supplied gender matches approved genders
+     * @return bool
+     */
+    public function checkIsGenderApproved() {
+        return isset( $this->setAllowedGenders()[$this->catGender] );
     }
 
     /**
@@ -116,13 +139,12 @@ class Cat {
      * @return bool
      */
     public function checkIsColorApproved() {
-        //return isset($array[$key])
         return isset( $this->setAllowedColorings()[$this->catColoring] );
     }
 
     /**
      * Set the mood of the cat
-     * @param $mood/
+     * @param $mood
      */
     public function setMood($mood) {
         $this->catCurrentMood = $mood;
@@ -158,7 +180,6 @@ class Cat {
      * @return bool
      */
     public function checkIsMoodApproved() {
-        //return isset($array[$key])
         return isset( $this->setApprovedMood()[$this->catCurrentMood] );
     }
 

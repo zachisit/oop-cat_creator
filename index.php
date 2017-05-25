@@ -14,6 +14,7 @@ $tater->setGender("female");
 $tater->setWeight(23223);
 $tater->setColoring("calico");
 echo 'The weight of '. $tater->getName() . ' is ' . $tater->getWeight() . ' and the Gender is ' . $tater->getGender() . ' and ' . $tater->getName() . '\'s color is ' . $tater->getColoring() . '. Pretty groovy.<br /><br />';
+//echo $tater->checkIsGenderApproved() ? 1 : 0;
 
 /* create new cat called Rex */
 $rex = new Cat("Rex Daniels");
@@ -43,21 +44,21 @@ echo "<br />";
 echo "<br />";
 switch($rex->getMood()) {
     case 'grumpy':
-        echo 'uh oh, watch out - '. $rex->getName() .' is grumpy!';
+        echo 'Uh oh, watch out - '. $rex->getName() .' is grumpy!';
         break;
     case 'sleepy':
-        echo 'oh no, ' . $rex->getName() . ' is super sleepy. put this pug to bed!';
+        echo 'Oh no, ' . $rex->getName() . ' is super sleepy. Put this pug to bed!';
         break;
     case 'rowdy':
-        echo 'be careful, '. $rex->getName() . 'just tore up the living room. this pug is rowdy! let him outside';
+        echo 'Be careful, '. $rex->getName() . 'just tore up the living room. This pug is rowdy! Let him outside';
         //@TODO: change 'him' to be dynamic based on gender check
         break;
     case 'hungry':
-        echo 'poor thing needs his food! give '. $rex->getName() . ' some food!';
+        echo 'Ppoor thing needs his food! Give '. $rex->getName() . ' some food!';
         //@TODO: change 'him' to be dynamic based on gender check
         break;
     case 'thirsty':
-        echo 'your pug is thirsty! give '. $rex->getName() . ' some water!';
+        echo 'Your pug is thirsty! Give '. $rex->getName() . ' some water!';
         break;
 }
 echo "<br />";
@@ -85,13 +86,13 @@ switch($rex->getCatitudeStatus()) {
 }
 
 echo "<br />";
-$rex->setHasCatitude(1);
-switch($rex->getCatitudeStatus()) {
+$tater->setHasCatitude(1);
+switch($tater->getCatitudeStatus()) {
     case 0:
-        echo 'currently '. $rex->getName() . ' does not have catitude. what a bummer.<br />';
+        echo 'currently '. $tater->getName() . ' does not have catitude. what a bummer.<br />';
         break;
     case 1:
-        echo 'currently '. $rex->getName() . ' does have catitude. nice!<br />';
+        echo 'currently '. $tater->getName() . ' does have catitude. nice!<br />';
         break;
 }
 
