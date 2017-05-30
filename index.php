@@ -10,7 +10,7 @@ require_once "classCat.php";
 
 /* create new cat called Tater */
 $tater = new Cat("Tater B. Arfoluem");
-$tater->setGender("Male");
+$tater->setGender("female");
 $tater->setWeight(23223);
 $tater->setColoring("calico");
 echo 'The weight of '. $tater->getName() . ' is ' . $tater->getWeight() . ' and the Gender is ' . $tater->getGender() . ' and ' . $tater->getName() . '\'s color is ' . $tater->getColoring() . '. Pretty groovy.<br /><br />';

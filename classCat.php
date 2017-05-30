@@ -10,11 +10,11 @@ class Cat {
     //main variables
     private $catName;//string
     private $catWeight;//number
-    private $catGender;//male or female
+    private $catGender;
     private $catColoring;//array of approved colors
     private $catCurrentMood;//array of approved moods
     private $catHairLength;//array of approved hair lengths
-    private $catCattitude = 0;//bool
+    private $catCattitude = true;//bool
 
     /**
      * Cat constructor.
@@ -70,6 +70,14 @@ class Cat {
      */
     public function setGender($gender) {
         $this->catGender = strtolower($gender);
+
+        //check and make sure input matches array of
+        //approved genders in the approved gender method
+        if ( !isset( $this->setAllowedGenders()[$this->catGender] ) ) {
+            echo "ERROR 90990: Your gender <strong>$gender</strong> is not an approved gender. Please fix. ";
+            return;
+        }
+
         //note: it will not be needed to use strtolower in later phases of this application, since when user will fill out the input form to create the cat the gender options will be radio buttons and not text input fields. but good to test and use this phase of the app
     }
 
@@ -87,9 +95,9 @@ class Cat {
     public function setAllowedGenders() {
         //list approved genders
         $approved_gender = array (
-            'male' => 0,
-            'female' => 1,
-            'gender fluid' => 2
+            'male' => 'him',
+            'female' => 'her',
+            'gender fluid' => 'it'
         );
 
         return $approved_gender;
