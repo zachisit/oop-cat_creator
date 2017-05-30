@@ -71,8 +71,6 @@ class Cat {
             echo "ERROR 90990: Your gender <strong>$gender</strong> is not an approved gender. Please fix. ";
             return;
         }
-
-        //note: it will not be needed to use strtolower in later phases of this application, since when user will fill out the input form to create the cat the gender options will be radio buttons and not text input fields. but good to test and use this phase of the app
     }
 
     /**
@@ -89,6 +87,7 @@ class Cat {
     public function setAllowedGenders() {
         //list approved genders
         $approved_gender = array (
+            //gender => pronoun usage
             'male' => 'him',
             'female' => 'her',
             'gender fluid' => 'it'
@@ -219,6 +218,11 @@ class Cat {
      * @return mixed
      */
     public function setHairLength($hairlength) {
+        //if $hairlength matches the approved lengths
+        //then set it to the class var
+        //otherwise produce error
+        //@TODO:do the if statement below, based off of
+        //@TODO setgenders
         return $this->catHairLength = $hairlength;
     }
 
