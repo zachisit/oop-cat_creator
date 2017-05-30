@@ -52,7 +52,7 @@ switch( $rex->getMood() ) {
         echo 'Oh no, ' . $rex->getName() . ' is super sleepy. Put '. $rex->returnGenderPronounUsage() . ' pug to bed!';
         break;
     case 'rowdy':
-        echo 'Be careful, '. $rex->getName() . 'just tore up the living room. This pug is rowdy! Let '. $rex->returnGenderPronounUsage() . ' outside!!';
+        echo 'Be careful, '. $rex->getName() . ' just tore up the living room. This pug is rowdy! Let '. $rex->returnGenderPronounUsage() . ' outside!!';
         break;
     case 'hungry':
         echo 'Poor thing needs his food! Give '. $rex->getName() . ' some food!';

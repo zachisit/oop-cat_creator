@@ -22,14 +22,8 @@ class Cat {
      */
     public function __construct($name)
     {
-        //if name of cat passed in, then run the following
-        if (isset($name)) {
-            $this->catName = $name;
-
-            echo "New Cat created, the name of the cat is $this->catName.<br />";
-        } else {
-            echo "New Cat created, but does not have a name. Poor little dude. What will you call this new fluffy creature?<br />";
-        }
+        //pass in name, if no name then set to null
+        $this->catName = $name ?? null;
     }
 
     /**
