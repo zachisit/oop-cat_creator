@@ -8,13 +8,13 @@ namespace Cat;
 
 class Cat {
     //main variables
-    private $catName;//string
-    private $catWeight;//number
-    private $catGender;
-    private $catColoring;//array of approved colors
-    private $catCurrentMood;//array of approved moods
-    private $catHairLength;//array of approved hair lengths
-    private $catCattitude = true;//bool
+    private $catName;//string name of cat
+    private $catWeight;//number weight of cat
+    private $catGender;//string gender of cat
+    private $catColoring;//string color of cat
+    private $catCurrentMood;//string mood of cat
+    private $catHairLength;//string of hair length of cat
+    private $catCattitude = false;//bool
 
     /**
      * Cat constructor.
