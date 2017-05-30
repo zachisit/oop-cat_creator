@@ -31,7 +31,7 @@ class Cat {
      * @param none
      */
     public function getName() {
-        return $this->catName;
+        return $this->catName ?? '';
     }
 
     /**
