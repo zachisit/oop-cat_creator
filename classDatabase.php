@@ -27,20 +27,7 @@ class database
     {
         $this->isConnected = TRUE;//if true then we connected to db
 
-        //check if connected
-        /*try
-        {
-            $this->databaseData = new PDO("mysql:host={$hostName}; dbname={$dbName}; charset=utf8", $userName, $password, $options);
-            //if not connected then provide error
-            $this->databaseData->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            //set new attribute to fetch
-            $this->databaseData->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            //if error then show error message
-            //throw new PDOException($e->getMessage());
-            echo $e->getMessage();
-        }*/
-
+        //connect to db
         try {
             $this->databaseData = new PDO ("mysql:host=$hostName;dbname=$dbName", $userName, $password);
             $this->databaseData->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
@@ -49,11 +36,6 @@ class database
             echo "connection failed: " . $e->getMessage() . "<br /><br />";
         }
     }
-
-    /*public function __construct()
-    {
-        echo "test";
-    }*/
 
     //disconnect from db
     public function disconnect()
