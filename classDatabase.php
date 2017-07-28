@@ -7,6 +7,8 @@
 
 namespace Database;
 
+use PDO;
+use PDOException;
 
 class database
 {
@@ -21,21 +23,21 @@ class database
      * @param string $dbname
      * @param array $options
      */
-    public function __construct($username="zsmith", $password="y47RvFvkBbtm", $host="localhost", $dbname="efs_zach_cat_creator", $options=[])
+    public function __construct($userName='zsmith', $password='y47RvFvkBbtm', $hostName='localhost', $dbName='efs_zach_cat_creator', $options=[])
     {
         $this->isConnected = TRUE;//if true then we connected to db
 
         //check if connected
         try
         {
-            $this->databaseData = new \PDO("mysql:host={$host}; $dbname={$dbname}; charset=utf8", $username, $password, $options);
+            $this->databaseData = new PDO("mysql:host={$hostName}; dbname={$dbName}; charset=utf8", $userName, $password, $options);
             //if not connected then provide error
-            $this->databaseData->setAttribute(\PDO::ATTR_ERRMODE, \PDO::ERRMODE_EXCEPTION);
+            $this->databaseData->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             //set new attribute to fetch
-            $this->databaseData->setAttribute(\PDO::ATTR_DEFAULT_FETCH_MODE, \PDO::FETCH_ASSOC);
-        } catch (\PDOException $e) {
+            $this->databaseData->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
             //if error then show error message
-            throw new \PDOException($e->getMessage());
+            throw new PDOException($e->getMessage());
         }
     }
 
