@@ -23,7 +23,7 @@ class database
      * @param string $dbname
      * @param array $options
      */
-    public function __construct($userName='zsmith', $password='y47RvFvkBbtm', $hostName='localhost', $dbName='efs_zach_cat_creator', $options=[])
+    public function __construct($userName='zsmith', $password='y47RvFvkBbtm', $hostName='db01.efsnetworks.com', $dbName='efs_zach_cat_creator', $options=[])
     {
         $this->isConnected = TRUE;//if true then we connected to db
 
@@ -31,7 +31,7 @@ class database
         try {
             $this->databaseData = new PDO ("mysql:host=$hostName;dbname=$dbName", $userName, $password);
             $this->databaseData->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "successfully connectd to db";
+            echo "successfully connectd to db<br /><br />";
         } catch (PDOException $e) {
             echo "connection failed: " . $e->getMessage() . "<br /><br />";
         }
