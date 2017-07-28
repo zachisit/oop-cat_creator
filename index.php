@@ -4,21 +4,19 @@
  */
 namespace Cat;
 
-use database\database;
-
 include "views/header.php";
 
 require_once "classCat.php";
 require_once "classDatabase.php";
 
 //database connection stuff
-$db = new Database();
+$db = new database();
 
-$getRow = $db->getRow("SELECT * FROM users WHERE age = ?", ['2']);
+//$getRow = $db->getRow("SELECT * FROM users WHERE age = ?", ['2']);
 
-echo '<pre>';
-print_r($getRow);
-echo '</pre>';
+//echo '<pre>';
+//pint_r($getRow);
+//echo '</pre>';
 
 $t = time();
 

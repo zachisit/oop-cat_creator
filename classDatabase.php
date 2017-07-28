@@ -5,7 +5,7 @@
  * uses PDO
  */
 
-namespace Database;
+namespace Cat;
 
 use PDO;
 use PDOException;
@@ -28,7 +28,7 @@ class database
         $this->isConnected = TRUE;//if true then we connected to db
 
         //check if connected
-        try
+        /*try
         {
             $this->databaseData = new PDO("mysql:host={$hostName}; dbname={$dbName}; charset=utf8", $userName, $password, $options);
             //if not connected then provide error
@@ -37,7 +37,16 @@ class database
             $this->databaseData->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         } catch (PDOException $e) {
             //if error then show error message
-            throw new PDOException($e->getMessage());
+            //throw new PDOException($e->getMessage());
+            echo $e->getMessage();
+        }*/
+
+        try {
+            $this->databaseData = new PDO ("mysql:host=$hostName;dbname=$dbName", $userName, $password);
+            $this->databaseData->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            echo "successfully connectd to db";
+        } catch (PDOException $e) {
+            echo "connection failed: " . $e->getMessage() . "<br /><br />";
         }
     }
 
@@ -62,7 +71,7 @@ class database
             $stmt->execute($params);
             return $stmt->fetch();//not fetchall since only one row
         } catch (\PDOException $e) {
-            throw new \Exception($e->getMessage());
+            echo $e->getMessage();
         }
     }
 
