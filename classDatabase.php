@@ -31,7 +31,6 @@ class database
         try {
             $this->databaseData = new PDO ("mysql:host=$hostName;dbname=$dbName", $userName, $password);
             $this->databaseData->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-            echo "successfully connectd to db<br /><br />";
         } catch (PDOException $e) {
             echo "connection failed: " . $e->getMessage() . "<br /><br />";
         }
@@ -44,23 +43,31 @@ class database
         $this->isConnected = FALSE;
     }
 
-    //get row
+    //get one single row
+    //@todo pipe in row id via var
     public function getRow($query, $params = [])
     {
-        try
+        /*try
         {
             $stmt = $this->databaseData->prepare($query);
             $stmt->execute($params);
             return $stmt->fetch();//not fetchall since only one row
         } catch (\PDOException $e) {
             echo $e->getMessage();
-        }
+        }*/
     }
 
-    //get rows
-    public function getRows()
+    //get all rows
+    public function getRows($query)
     {
-
+        try
+        {
+            $stmt = $this->databaseData->prepare($query);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
     }
 
     //insert row

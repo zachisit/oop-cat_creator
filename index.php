@@ -10,21 +10,55 @@ require_once "classCat.php";
 require_once "classDatabase.php";
 
 //database connection stuff
-$db = new database();
+$db = new database();//connect to db
 
-//$getRow = $db->getRow("SELECT * FROM users WHERE age = ?", ['2']);
 
+$fetch_all_cats = $db->getRows("SELECT * FROM users");//save into array
+//print_r($fetch_all_cats);
+?>
+<table>
+    <thead>
+    <tr>
+        <td>Cat Name</td>
+        <td>Age</td>
+        <td>Gender</td>
+        <td>Coloring</td>
+        <td>Current Mood</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <?php
+        foreach( $fetch_all_cats as $record)
+        {
+            echo '<tr>';
+            echo '<td>' . $record['catName'] . '</td>';
+            echo '<td>' . $record['age'] . '</td>';
+            echo '<td>' . $record['gender'] . '</td>';
+            echo '<td>' . $record['coloring'] . '</td>';
+            echo '<td>' . $record['currentMood'] . '</td>';
+            echo '</tr>';
+        }
+        ?>
+
+    </tr>
+    </tbody>
+
+</table>
+
+
+<?php
 //echo '<pre>';
 //pint_r($getRow);
 //echo '</pre>';
 
-$t = time();
+$t = new \DateTime();
 
 $data = [
     'catname' => 'bobcat',
     'age' => '23',
     'gender' => 'male',
-    'createTime' => $t,
+    'createTime' => $t->format('Y-m-d H:i:s'),
     'coloring' => 'calico',
     'hairLength' => 'medium',
     'currentMood' => 'sleepy',

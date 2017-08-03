@@ -1,4 +1,22 @@
 /**
+ * Results Table
+ */
+table {
+    border:1px solid;
+}
+table thead {
+    background:#cccccc;
+    border-bottom:1px solid black;
+    font-weight:bold;
+}
+table tbody tr {
+    border-bottom:1px solid black;
+}
+table tbody tr {
+    text-align:center;
+}
+
+/**
  * Home Input Form
  */
 .error {
