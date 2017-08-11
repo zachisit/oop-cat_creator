@@ -93,12 +93,19 @@ class database
 
     //pipe in certain search query to output all rows by
     //i.e., output all rows where Coloring is Brown
-    public function getRowsByCategory($columnName) {
+    //@TODO:extend to show more than one column
+    public function getRowsByCategory($columnName, $columnValue) {
+        /*
+         * in the cat class, getcatsbyategory
+         * also in catclass, valid categories in the cat class
+         */
+
         try
         {
-            $stmt = $this->databaseData->prepare("SELECT $columnName FROM users");
+            $stmt = $this->databaseData->prepare("SELECT * FROM users WHERE $columnName = '$columnValue'");
             $stmt->execute();
-            $result = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+            //$result = $stmt->fetchAll(PDO::FETCH_CLASS, '\\Cat\\Cat');
+            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
             print_r($result);
         } catch (\PDOException $e) {
             echo $e->getMessage();
@@ -110,6 +117,7 @@ class database
      * @param $data
      */
     public function insertRow($data) {
+        //@TODO: check if not empty data, etc
         try
         {
             $stmt = $this->databaseData->prepare("INSERT INTO users (" . implode(', ', array_keys($data)) . ") VALUES (:" . implode(', :', array_keys($data)) . ")");

@@ -15,7 +15,7 @@ $db = new database();//connect to db
 
 <?php
 //delete a record
-//$delete_a_cat = $db->deleteRow('7');
+$delete_a_cat = $db->deleteRow('12');
 
 //create new cat and push to database
 
@@ -38,7 +38,7 @@ $new_cat = [
 ?>
 
 <?php
-$cats_are_brown = $db->getRowsByCategory('weight');
+$cats_are_brown = $db->getRowsByCategory('gender', 'male');
 ?>
 
 
