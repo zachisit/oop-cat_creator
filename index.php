@@ -38,7 +38,7 @@ $new_cat = [
 ?>
 
 <?php
-$cats_are_brown = $db->getRowsByCategory();
+$cats_are_brown = $db->getRowsByCategory('weight');
 ?>
 
 

@@ -77,6 +77,7 @@ class database
     }
 
     //return column count
+
     public function returnColumnCount($columnName) {
         try
         {
@@ -92,13 +93,13 @@ class database
 
     //pipe in certain search query to output all rows by
     //i.e., output all rows where Coloring is Brown
-    public function getRowsByCategory() {
+    public function getRowsByCategory($columnName) {
         try
         {
-            $stmt = $this->databaseData->prepare("SELECT * FROM users");
+            $stmt = $this->databaseData->prepare("SELECT $columnName FROM users");
             $stmt->execute();
-            $result = $stmt->fetchColumn(3);
-            print("name = $result\n");
+            $result = $stmt->fetchAll(PDO::FETCH_COLUMN, 0);
+            print_r($result);
         } catch (\PDOException $e) {
             echo $e->getMessage();
         }
