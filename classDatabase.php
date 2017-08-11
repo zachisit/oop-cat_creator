@@ -14,9 +14,10 @@ class database
 {
     public $isConnected;//are we connected?
     protected $databaseData;//protected only use in this class
+    protected $recordID;//record id in database, used for deleting
 
     /**
-     * database constructor.
+     * Database constructor.
      * @param string $username
      * @param string $password
      * @param string $host
@@ -36,7 +37,9 @@ class database
         }
     }
 
-    //disconnect from db
+    /**
+     * Disconnect from Database
+     */
     public function disconnect()
     {
         $this->databaseData = NULL;
@@ -57,7 +60,11 @@ class database
         }*/
     }
 
-    //get all rows
+    /**
+     * Get All Rows
+     * @param $query
+     * @return array
+     */
     public function getRows($query)
     {
         try
@@ -82,14 +89,20 @@ class database
 
     }
 
-    //delete row
-    public function deleteRow($query)
+    /**
+     * Delete Database Row
+     * @param $query
+     */
+    public function deleteRow($id)
     {
+        $this->recordID = $id;
+
         try
         {
-            $stmt = $this->databaseData->prepare($query);
+            $stmt = $this->databaseData->prepare("DELETE FROM users WHERE id = '{$id}'");
             $stmt->execute();
             //return $stmt->fetchAll();
+            echo 'record deleted successfully';
         } catch (\PDOException $e) {
             echo $e->getMessage();
         }

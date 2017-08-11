@@ -86,12 +86,12 @@ class Cat {
      */
     public function setAllowedGenders() {
         //list approved genders
-        $approved_gender = array (
+        $approved_gender = [
             //gender => pronoun usage
             'male' => 'him',
             'female' => 'her',
             'gender fluid' => 'it'
-        );
+        ];
 
         return $approved_gender;
     }
@@ -145,13 +145,13 @@ class Cat {
     public function setAllowedColorings() {
         //list of approved cat colors
         //related to hex colors
-        $allowed_colorings = array (
+        $allowed_colorings = [
             'black' => '#000000',
             'gray' => '#808080',
             'brown' => '#A5682A',
             'calico' => '#D5B185',
             'white' => '#FFFFFF'
-        );
+        ];
 
         return $allowed_colorings;
     }
@@ -185,13 +185,13 @@ class Cat {
      */
     public function setApprovedMood() {
         //list of approved moods
-        $approved_moods = array(
+        $approved_moods = [
             'grumpy' => '0',
             'sleepy' => '1',
             'rowdy' => '2',
             'thirsty' => '3',
             'hungry' => '4'
-        );
+        ];
 
         return $approved_moods;
     }
@@ -231,11 +231,11 @@ class Cat {
      * @return array
      */
     public function checkIsHairLengthApproved() {
-        $approved_hairlength = array (
+        $approved_hairlength = [
             'short',
             'long',
             'hairless'
-        );
+        ];
 
         return $approved_hairlength;
     }

@@ -17,6 +17,15 @@ $fetch_all_cats = $db->getRows("SELECT * FROM users");
 //save into array
 //print_r($fetch_all_cats);
 ?>
+
+<?php
+//delete a record
+$delete_a_cat = $db->deleteRow('8');
+?>
+
+
+    
+
     <!--
     this below works, i am just hiding to test delete method
 <table>
@@ -50,32 +59,8 @@ $fetch_all_cats = $db->getRows("SELECT * FROM users");
 -->
 
 <?php
-//delete a record
-$delete_a_cat = $db->deleteRow("DELETE FROM users WHERE id = 5");
-
-
-
-
-//echo '<pre>';
-//pint_r($getRow);
-//echo '</pre>';
-
-$t = new \DateTime();
-
-$data = [
-    'catname' => 'bobcat',
-    'age' => '23',
-    'gender' => 'male',
-    'createTime' => $t->format('Y-m-d H:i:s'),
-    'coloring' => 'calico',
-    'hairLength' => 'medium',
-    'currentMood' => 'sleepy',
-    'weight' => '8',
-    'hasCatitude' => '1'
-];
-
-/* create new cat called Tater */
-$tater = new Cat("Tater B. Arfoluem");
+/*
+ * hide all below
 $tater->setGender("gender fluid");
 $tater->setWeight(23223);
 $tater->setColoring("calico");
@@ -83,6 +68,8 @@ echo 'The weight of '. $tater->getName() . ' is ' . $tater->getWeight() . ' and 
 //echo $tater->checkIsGenderApproved() ? 1 : 0;
 
 /* create new cat called Rex */
+/*
+ * hide all below
 $rex = new Cat("Rex Daniels");
 $rex->setGender("male");
 $rex->setWeight(4343343);
@@ -90,6 +77,8 @@ $rex->setColoring("red");
 echo 'The weight of '. $rex->getName() . ' is ' . $rex->getWeight() . ' and the Gender is ' . $rex->getGender() . ' and ' . $rex->getName() . '\'s color is ' . $rex->getColoring() . '. Pretty cool.<br /><br />';
 
 /* create new cat called Bobcat */
+/*
+ * hide all below
 $bobcat = new Cat("Bobcat");
 $bobcat->setWeight("rar");
 echo $bobcat->getWeight();
@@ -97,6 +86,8 @@ echo "<br />";
 echo "<br />";
 
 /* set and return color */
+/*
+ * hide all below
 $rex->setColoring("brown");
 echo $rex->getColoring();
 echo "<br />";
@@ -104,6 +95,8 @@ echo "<br />";
 //echo $rex->checkIsColorApproved() ? 1 : 0;
 
 /* set and return mood with feedback response based on data */
+/*
+ * hide all below
 $rex->setMood("rowdy");
 echo $rex->getName(). 'is currently ' . $rex->getMood() . '!';
 echo "<br />";
@@ -134,6 +127,8 @@ echo "<br />";
 echo "<br />";
 
 /* set and return hair length */
+/*
+ * hide all below
 $rex->setHairLength('long');
 echo $rex->getName() . '\'s length of hair is '. $rex->getHairLength();
 echo "<br />";
@@ -141,6 +136,8 @@ echo "<br />";
 
 /* set and determind if cat has catitude */
 //echo $rex->getCatitudeStatus();
+/*
+ * hide all below
 //@TODO: i am torn if i should move this to a class method, or if i should leave in this page. i guess it will depend on how this app evolves when we start creating the user input phase
 switch($rex->getCatitudeStatus()) {
     case 0:
@@ -165,5 +162,5 @@ switch($tater->getCatitudeStatus()) {
 
 
 
-
+*///used from the hide all data block
 include "views/footer.php";
