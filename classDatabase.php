@@ -76,14 +76,22 @@ class database
     }
 
     //update row
+    //changes value of existing row
     public function updateRow()
     {
 
     }
 
     //delete row
-    public function deleteRow()
+    public function deleteRow($query)
     {
-
+        try
+        {
+            $stmt = $this->databaseData->prepare($query);
+            $stmt->execute();
+            //return $stmt->fetchAll();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
     }
 }

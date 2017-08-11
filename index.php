@@ -13,9 +13,12 @@ require_once "classDatabase.php";
 $db = new database();//connect to db
 
 
-$fetch_all_cats = $db->getRows("SELECT * FROM users");//save into array
+$fetch_all_cats = $db->getRows("SELECT * FROM users");
+//save into array
 //print_r($fetch_all_cats);
 ?>
+    <!--
+    this below works, i am just hiding to test delete method
 <table>
     <thead>
     <tr>
@@ -40,14 +43,19 @@ $fetch_all_cats = $db->getRows("SELECT * FROM users");//save into array
             echo '</tr>';
         }
         ?>
-
     </tr>
     </tbody>
 
 </table>
-
+-->
 
 <?php
+//delete a record
+$delete_a_cat = $db->deleteRow("DELETE FROM users WHERE id = 5");
+
+
+
+
 //echo '<pre>';
 //pint_r($getRow);
 //echo '</pre>';
