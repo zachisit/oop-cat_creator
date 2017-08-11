@@ -27,47 +27,64 @@ $fetch_all_cats = $db->getRows("SELECT * FROM users");
 $today_time = date('Y-m-d h:i:sa');
 
 $new_cat = [
-    'catName' => 'zach',
-    'age' => '23',
-    'gender' => 'male',
+    'catName' => 'john boy',
+    'age' => '12',
+    'gender' => 'female',
     'createTime' => $today_time,
-    'coloring' => 'red',
+    'coloring' => 'brown',
     'hairLength' => 'medium',
-    'currentMood' => 'rowdy',
-    'weight' => '32343',
-    'hasCatittude' => 1,
-    'id' => '8'
+    'currentMood' => 'sleepy',
+    'weight' => '464',
+    'hasCatittude' => 0,
+    'id' => '11'
 ];
 
-$addNewCat = $db->insertRow($new_cat);
+//$addNewCat = $db->insertRow($new_cat);
 ?>
 
 
 
 
-    <!--
-    this below works, i am just hiding to test delete method
+
+<br /><br />
 <table>
     <thead>
     <tr>
+        <td>ID</td>
         <td>Cat Name</td>
         <td>Age</td>
         <td>Gender</td>
+        <td>Date Created</td>
         <td>Coloring</td>
+        <td>Hair Length</td>
         <td>Current Mood</td>
+        <td>Weight</td>
+        <td>Have Catittude?</td>
     </tr>
     </thead>
     <tbody>
     <tr>
         <?php
+        $yes = '1';
+
         foreach( $fetch_all_cats as $record)
         {
             echo '<tr>';
+            echo '<td>' . $record['id'] . '</td>';
             echo '<td>' . $record['catName'] . '</td>';
             echo '<td>' . $record['age'] . '</td>';
             echo '<td>' . $record['gender'] . '</td>';
+            echo '<td>' . $record['createTime'] . '</td>';
             echo '<td>' . $record['coloring'] . '</td>';
+            echo '<td>' . $record['hairLength'] . '</td>';
             echo '<td>' . $record['currentMood'] . '</td>';
+            echo '<td>' . $record['weight'] . '</td>';
+            if ($record['hasCatittude'] === $yes) {
+                echo '<td>Yes</td>';
+            } else {
+                echo '<td>Nope</td>';
+            }
+            //echo '<td>' . $record['hasCatittude'] . '</td>';
             echo '</tr>';
         }
         ?>
@@ -75,7 +92,7 @@ $addNewCat = $db->insertRow($new_cat);
     </tbody>
 
 </table>
--->
+
 
 <?php
 /*
