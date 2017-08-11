@@ -20,11 +20,30 @@ $fetch_all_cats = $db->getRows("SELECT * FROM users");
 
 <?php
 //delete a record
-$delete_a_cat = $db->deleteRow('8');
+//$delete_a_cat = $db->deleteRow('7');
+
+//create new cat and push to database
+
+$today_time = date('Y-m-d h:i:sa');
+
+$new_cat = [
+    'catName' => 'zach',
+    'age' => '23',
+    'gender' => 'male',
+    'createTime' => $today_time,
+    'coloring' => 'red',
+    'hairLength' => 'medium',
+    'currentMood' => 'rowdy',
+    'weight' => '32343',
+    'hasCatittude' => 1,
+    'id' => '8'
+];
+
+$addNewCat = $db->insertRow($new_cat);
 ?>
 
 
-    
+
 
     <!--
     this below works, i am just hiding to test delete method

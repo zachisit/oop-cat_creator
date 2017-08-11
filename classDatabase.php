@@ -78,8 +78,19 @@ class database
     }
 
     //insert row
-    public function insertRow() {
+    public function insertRow($data) {
+        try
+        {
+            $stmt = $this->databaseData->prepare("INSERT INTO users (" . implode(', ', array_keys($data)) . ") VALUES (:" . implode(', :', array_keys($data)) . ")");
 
+            foreach($data as $key => $value) {
+                $stmt->bindValue($key, $value, PDO::PARAM_STR);
+            }
+            $stmt->execute();
+            echo 'record created successfully';
+        } catch (\PDOException $e) {
+            echo 'Adding new record failed' . $e->getMessage();
+        }
     }
 
     //update row
@@ -100,8 +111,8 @@ class database
         try
         {
             $stmt = $this->databaseData->prepare("DELETE FROM users WHERE id = '{$id}'");
+            //@TODO: check if record exists first, create if/else around this
             $stmt->execute();
-            //return $stmt->fetchAll();
             echo 'record deleted successfully';
         } catch (\PDOException $e) {
             echo $e->getMessage();
