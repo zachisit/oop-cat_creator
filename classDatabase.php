@@ -64,13 +64,41 @@ class database
      * Get All Rows
      * @return array
      */
-    public function getRows()
+    public function getAllRows()
     {
         try
         {
             $stmt = $this->databaseData->prepare("SELECT * FROM users");
             $stmt->execute();
             return $stmt->fetchAll();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
+
+    //return column count
+    public function returnColumnCount($columnName) {
+        try
+        {
+            $stmt = $this->databaseData->prepare("SELECT COUNT(id) FROM users");
+            $stmt->execute();
+            $result = $stmt->fetchColumn($columnName);
+            echo 'There are '. $result . ' number of records';
+        } catch (\PDOException $e) {
+            echo 'There was an issue excecuting your query:' . $e->getMessage();
+        }
+
+    }
+
+    //pipe in certain search query to output all rows by
+    //i.e., output all rows where Coloring is Brown
+    public function getRowsByCategory() {
+        try
+        {
+            $stmt = $this->databaseData->prepare("SELECT * FROM users");
+            $stmt->execute();
+            $result = $stmt->fetchColumn(3);
+            print("name = $result\n");
         } catch (\PDOException $e) {
             echo $e->getMessage();
         }

@@ -22,7 +22,7 @@ $db = new database();//connect to db
 $today_time = date('Y-m-d h:i:sa');
 
 $new_cat = [
-    'catName' => 'max',
+    'catName' => 'max browngold',
     'age' => '30',
     'gender' => 'male',
     'createTime' => $today_time,
@@ -37,12 +37,14 @@ $new_cat = [
 //$addNewCat = $db->insertRow($new_cat);
 ?>
 
-
+<?php
+$cats_are_brown = $db->getRowsByCategory();
+?>
 
 
 <?php
 
-$fetch_all_cats = $db->getRows("SELECT * FROM users");
+$fetch_all_cats = $db->getAllRows("SELECT * FROM users");
 //save into array
 //print_r($fetch_all_cats);
 ?>
