@@ -62,14 +62,13 @@ class database
 
     /**
      * Get All Rows
-     * @param $query
      * @return array
      */
-    public function getRows($query)
+    public function getRows()
     {
         try
         {
-            $stmt = $this->databaseData->prepare($query);
+            $stmt = $this->databaseData->prepare("SELECT * FROM users");
             $stmt->execute();
             return $stmt->fetchAll();
         } catch (\PDOException $e) {

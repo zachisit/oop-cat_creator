@@ -11,11 +11,6 @@ require_once "classDatabase.php";
 
 //database connection stuff
 $db = new database();//connect to db
-
-
-$fetch_all_cats = $db->getRows("SELECT * FROM users");
-//save into array
-//print_r($fetch_all_cats);
 ?>
 
 <?php
@@ -27,16 +22,16 @@ $fetch_all_cats = $db->getRows("SELECT * FROM users");
 $today_time = date('Y-m-d h:i:sa');
 
 $new_cat = [
-    'catName' => 'john boy',
-    'age' => '12',
-    'gender' => 'female',
+    'catName' => 'max',
+    'age' => '30',
+    'gender' => 'male',
     'createTime' => $today_time,
     'coloring' => 'brown',
     'hairLength' => 'medium',
     'currentMood' => 'sleepy',
     'weight' => '464',
     'hasCatittude' => 0,
-    'id' => '11'
+    'id' => '12'
 ];
 
 //$addNewCat = $db->insertRow($new_cat);
@@ -45,7 +40,12 @@ $new_cat = [
 
 
 
+<?php
 
+$fetch_all_cats = $db->getRows("SELECT * FROM users");
+//save into array
+//print_r($fetch_all_cats);
+?>
 <br /><br />
 <table>
     <thead>
