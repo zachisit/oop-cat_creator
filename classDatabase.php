@@ -77,7 +77,10 @@ class database
         }
     }
 
-    //insert row
+    /**
+     * Insert New Record
+     * @param $data
+     */
     public function insertRow($data) {
         try
         {
