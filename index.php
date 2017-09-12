@@ -24,7 +24,7 @@ $fudge = $test->getAllCats();
 
 //create new cat and push to database
 
-$today_time = date('Y-m-d h:i:sa');
+$today_time = date('Y-m-d h:i:s');
 
 $new_cat = [
     'catName' => 'mr muffin puffins',
@@ -41,6 +41,8 @@ $new_cat = [
 
 //$addNewCat = $db->insertRow($new_cat);
 //$getAllCats = $db->getAllRows();
+//$addRecord = $test->addCatRecord($new_cat);
+//echo $addRecord;
 ?>
 
 <?php

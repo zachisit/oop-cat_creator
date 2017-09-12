@@ -127,6 +127,7 @@ class database
     /**
      * Insert New Record
      * @param $data
+     * @return string
      */
     public function insertRow($data) {
         //@TODO: check if not empty data, etc
@@ -138,9 +139,9 @@ class database
                 $stmt->bindValue($key, $value, PDO::PARAM_STR);
             }
             $stmt->execute();
-            echo 'record created successfully';
+            return 'record created successfully';
         } catch (\PDOException $e) {
-            echo 'Adding new record failed' . $e->getMessage();
+            return 'Adding new record failed' . $e->getMessage();
         }
     }
 

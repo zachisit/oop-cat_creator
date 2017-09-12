@@ -28,9 +28,8 @@ class Cat {
         //pass in name, if no name then set to null
         $this->catName = $name ?? null;
 
+        //create new db connection
         $this->database = new database();
-
-        echo 'constructor fired';
     }
 
     /**
@@ -274,12 +273,19 @@ class Cat {
         return $this->catCattitude;
     }
 
-    //add cat
-    public function addCatRecord() {
-
+    /**
+     * Add A Cat Record
+     * @param $catData
+     * @return string
+     */
+    public function addCatRecord($catData) {
+        return $this->database->insertRow($catData);
     }
 
-    //get all cats
+    /**
+     * Return All Cat Records
+     * @return array
+     */
     public function getAllCats() {
         return $this->database->getAllRows();
     }
