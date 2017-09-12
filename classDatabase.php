@@ -46,6 +46,11 @@ class database
         $this->isConnected = FALSE;
     }
 
+    /**
+     * Get Row
+     * @param $query
+     * @param array $params
+     */
     //get one single row
     //@todo pipe in row id via var
     public function getRow($query, $params = [])
@@ -76,8 +81,10 @@ class database
         }
     }
 
-    //return column count
-
+    /**
+     * Return Column Count
+     * @param $columnName
+     */
     public function returnColumnCount($columnName) {
         try
         {
@@ -91,6 +98,11 @@ class database
 
     }
 
+    /**
+     * Get Rows By Category
+     * @param $columnName
+     * @param $columnValue
+     */
     //pipe in certain search query to output all rows by
     //i.e., output all rows where Coloring is Brown
     //@TODO:extend to show more than one column

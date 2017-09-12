@@ -7,44 +7,50 @@ namespace Cat;
 include "views/header.php";
 
 require_once "classCat.php";
-require_once "classDatabase.php";
+//require_once "classDatabase.php";
 
 //database connection stuff
-$db = new database();//connect to db
+//$db = new database();//connect to db
+$test = new Cat("test");
+
+$fudge = $test->getAllCats();
+//var_dump($fudge);
+//var_dump($test->getAllCats());
 ?>
 
 <?php
 //delete a record
-$delete_a_cat = $db->deleteRow('12');
+//$delete_a_cat = $db->deleteRow('12');
 
 //create new cat and push to database
 
 $today_time = date('Y-m-d h:i:sa');
 
 $new_cat = [
-    'catName' => 'max browngold',
-    'age' => '30',
-    'gender' => 'male',
+    'catName' => 'mr muffin puffins',
+    'age' => '21',
+    'gender' => 'female',
     'createTime' => $today_time,
     'coloring' => 'brown',
     'hairLength' => 'medium',
-    'currentMood' => 'sleepy',
-    'weight' => '464',
+    'currentMood' => 'rowdy',
+    'weight' => '121',
     'hasCatittude' => 0,
-    'id' => '12'
+    'id' => '13'
 ];
 
 //$addNewCat = $db->insertRow($new_cat);
+//$getAllCats = $db->getAllRows();
 ?>
 
 <?php
-$cats_are_brown = $db->getRowsByCategory('gender', 'male');
+//$cats_are_brown = $db->getRowsByCategory('gender', 'male');
 ?>
 
 
 <?php
 
-$fetch_all_cats = $db->getAllRows("SELECT * FROM users");
+//$fetch_all_cats = $this->getAllRows();
 //save into array
 //print_r($fetch_all_cats);
 ?>
@@ -69,7 +75,7 @@ $fetch_all_cats = $db->getAllRows("SELECT * FROM users");
         <?php
         $yes = '1';
 
-        foreach( $fetch_all_cats as $record)
+        foreach( $fudge as $record)
         {
             echo '<tr>';
             echo '<td>' . $record['id'] . '</td>';

@@ -6,6 +6,8 @@
 
 namespace Cat;
 
+require 'classDatabase.php';
+
 class Cat {
     //main variables
     private $catName;//string name of cat
@@ -15,6 +17,7 @@ class Cat {
     private $catCurrentMood;//string mood of cat
     private $catHairLength;//string of hair length of cat
     private $catCattitude = false;//bool
+    private $database;
 
     /**
      * Cat constructor.
@@ -24,6 +27,10 @@ class Cat {
     {
         //pass in name, if no name then set to null
         $this->catName = $name ?? null;
+
+        $this->database = new database();
+
+        echo 'constructor fired';
     }
 
     /**
@@ -53,6 +60,7 @@ class Cat {
 
     /**
      * Return weight of cat
+     * @return mixed
      */
     public function getWeight() {
         return $this->catWeight;
@@ -264,5 +272,15 @@ class Cat {
      */
     public function getCatitudeStatus() {
         return $this->catCattitude;
+    }
+
+    //add cat
+    public function addCatRecord() {
+
+    }
+
+    //get all cats
+    public function getAllCats() {
+        return $this->database->getAllRows();
     }
 }
