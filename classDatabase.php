@@ -19,11 +19,7 @@ class database
     protected $recordID;//record id in database, used for deleting
 
     /**
-     * Database constructor.
-     * @param string $username
-     * @param string $password
-     * @param string $host
-     * @param string $dbname
+     * database constructor.
      * @param array $options
      */
     public function __construct($options=[])
@@ -35,7 +31,7 @@ class database
             $this->databaseData = new PDO(DB_TYPE.':host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
             $this->databaseData->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
-            echo "connection failed: " . $e->getMessage() . "<br /><br />";
+            return "connection failed: " . $e->getMessage() . "<br /><br />";
         }
     }
 
