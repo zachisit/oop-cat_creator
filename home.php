@@ -3,8 +3,13 @@
  * home template
  */
 
-include "views/header.php";?>
+include "views/header.php";
+include 'classCat.php'?>
 <?php
+
+$newCat_class = new \Cat\Cat('12');
+$approvedGenders = $newCat_class->setAllowedGenders();
+var_dump($approvedGenders);
 
 $newCatData = [];
 
@@ -19,7 +24,6 @@ if (isset($_POST['create_cat'])) {
 
 var_dump($newCatData);
 
-//$cat = new \Cat\Cat('');
 ?>
 <div id="error"><?php //error messages here ?></div>
 <form name="cat_creation" method="post">
@@ -33,7 +37,14 @@ var_dump($newCatData);
     </div>
     <div class="entry">
         <label>Gender</label>
-        <input type="text" name="cat_gender" value="<?=$newCatGender?>" maxlength="30" size="8" />
+        <!--<input type="text" name="cat_gender" value="<?=$newCatGender?>" maxlength="30" size="8" />-->
+        <select name="cat_gender">
+            <option value="Select A Gender">Select A Gender</option>
+        <?php
+        foreach ($approvedGenders as $key => $val) :
+            echo "<option value='".$key."'>".$key."</option>";
+         endforeach; ?>
+        </select>
     </div>
     <div class="entry">
         <label>Color</label>

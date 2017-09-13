@@ -40,7 +40,7 @@ form .entry label {
     width:100%;
     margin:20px 0 0 0;
 }
-form .entry input {
+form .entry input, form .entry select {
     width:90%;
     margin:0 auto;
     padding:5px;
@@ -50,6 +50,9 @@ form .entry input {
     -webkit-border-radius:10px;
     -moz-border-radius:10px;
     border-radius:10px;
+}
+form .entry select option {
+    text-align:center;
 }
 form .entry #submit {
     width:90%;

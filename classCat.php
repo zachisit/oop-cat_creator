@@ -91,6 +91,7 @@ class Cat {
      * Set list approved genders
      * @return array
      */
+    //@todo: change to returnAllowedGenders
     public function setAllowedGenders() {
         //list approved genders
         $approved_gender = [
