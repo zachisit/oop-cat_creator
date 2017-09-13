@@ -290,7 +290,21 @@ class Cat {
         return $this->database->getAllRows();
     }
 
+    /**
+     * Delete Single Cat Record
+     * @param $id
+     * @return string
+     */
     public function deleteCatRecord($id) {
         return $this->database->deleteRow($id);
+    }
+
+    /**
+     * Get Single Cat Using ID
+     * @param $id
+     * @return mixed|string
+     */
+    public function getSingleCatByID($id) {
+        return $this->database->getRow($id);
     }
 }

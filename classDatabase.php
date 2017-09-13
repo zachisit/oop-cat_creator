@@ -52,17 +52,17 @@ class database
      * @param array $params
      */
     //get one single row
-    //@todo pipe in row id via var
-    public function getRow($query, $params = [])
+    //@todo finish this out
+    public function getRow($id)
     {
-        /*try
+        try
         {
-            $stmt = $this->databaseData->prepare($query);
-            $stmt->execute($params);
-            return $stmt->fetch();//not fetchall since only one row
+            $stmt = $this->databaseData->prepare("SELECT * FROM users WHERE id=$id");
+            $stmt->execute();
+            return $stmt->fetch();
         } catch (\PDOException $e) {
-            echo $e->getMessage();
-        }*/
+            return $e->getMessage();
+        }
     }
 
     /**
