@@ -5,22 +5,19 @@
 
 include "views/header.php";?>
 <?php
+
+$newCatData = [];
+
 if (isset($_POST['create_cat'])) {
-    $newCatName = $_POST['cat_name'];
-    $newCatWeight = $_POST['cat_weight'];
-    $newCatGender = $_POST['cat_gender'];
-    $newCatColor = $_POST['cat_color'];
-    $newCatMood = $_POST['cat_mood'];
-    $newCatHairLength = $_POST['cat_hair_length'];
+    $newCatData[1] = $_POST['cat_name'];
+    $newCatData[2] = $_POST['cat_weight'];
+    $newCatData[3] = $_POST['cat_gender'];
+    $newCatData[4] = $_POST['cat_color'];
+    $newCatData[5] = $_POST['cat_mood'];
+    $newCatData[6] = $_POST['cat_hair_length'];
 }
 
-echo $newCatName;
-echo $newCatWeight;
-echo $newCatGender;
-echo $newCatColor;
-echo $newCatMood;
-echo $newCatHairLength;
-
+var_dump($newCatData);
 
 //$cat = new \Cat\Cat('');
 ?>
