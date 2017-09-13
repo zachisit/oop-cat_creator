@@ -1,5 +1,5 @@
 # oop-cat_creator
-learning OOP: creating a php application that allows user to create a cat with certain attributes - 60 minutes a day
+Creating and editing cat user records, using PHP, PDO, and OOP
 
 Project Location
 * https://zsmith-sandbox.efsnetworks.com/cat_creator/
