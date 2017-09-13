@@ -7,11 +7,8 @@ namespace Cat;
 include "views/header.php";
 
 require_once "classCat.php";
-//require_once "classDatabase.php";
 
-//database connection stuff
-//$db = new database();//connect to db
-$test = new Cat("test");
+$test = new Cat("septthirteen");
 
 $fudge = $test->getAllCats();
 //var_dump($fudge);
@@ -27,8 +24,8 @@ $fudge = $test->getAllCats();
 $today_time = date('Y-m-d h:i:s');
 
 $new_cat = [
-    'catName' => 'mr muffin puffins',
-    'age' => '21',
+    'catName' => 'ray ray',
+    'age' => '34',
     'gender' => 'female',
     'createTime' => $today_time,
     'coloring' => 'brown',
@@ -36,7 +33,7 @@ $new_cat = [
     'currentMood' => 'rowdy',
     'weight' => '121',
     'hasCatittude' => 0,
-    'id' => '13'
+    'id' => '12'
 ];
 
 //$addNewCat = $db->insertRow($new_cat);
@@ -44,7 +41,7 @@ $new_cat = [
 //$addRecord = $test->addCatRecord($new_cat);
 //echo $addRecord;
 
-//$deleteTest = $test->deleteCatRecord(13);
+//$deleteTest = $test->deleteCatRecord(12);
 //echo $deleteTest;
 ?>
 

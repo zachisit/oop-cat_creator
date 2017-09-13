@@ -160,14 +160,19 @@ class database
     {
         $this->recordID = $id;
 
-        try
-        {
-            $stmt = $this->databaseData->prepare("DELETE FROM users WHERE id = '{$id}'");
-            //@TODO: check if record exists first, create if/else around this
-            $stmt->execute();
-            return 'record deleted successfully';
-        } catch (\PDOException $e) {
-            return $e->getMessage();
+        if ($id == '') {
+            return 'invalid delete: record is blank';
+        } else {
+            try
+            {
+                $stmt = $this->databaseData->prepare("DELETE FROM users WHERE id = '{$id}'");
+                //@TODO: check if record exists first, create if/else around this
+                $stmt->execute();
+                return 'record deleted successfully';
+            } catch (\PDOException $e) {
+                return $e->getMessage();
+            }
         }
+
     }
 }
