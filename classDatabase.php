@@ -10,6 +10,8 @@ namespace Cat;
 use PDO;
 use PDOException;
 
+include 'config.php';
+
 class database
 {
     public $isConnected;//are we connected?
@@ -24,13 +26,13 @@ class database
      * @param string $dbname
      * @param array $options
      */
-    public function __construct($userName='zsmith', $password='y47RvFvkBbtm', $hostName='db01.efsnetworks.com', $dbName='efs_zach_cat_creator', $options=[])
+    public function __construct($options=[])
     {
         $this->isConnected = TRUE;//if true then we connected to db
 
         //connect to db
         try {
-            $this->databaseData = new PDO ("mysql:host=$hostName;dbname=$dbName", $userName, $password);
+            $this->databaseData = new PDO(DB_TYPE.':host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
             $this->databaseData->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo "connection failed: " . $e->getMessage() . "<br /><br />";
