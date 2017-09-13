@@ -9,7 +9,7 @@ include 'classCat.php'?>
 
 $newCat_class = new \Cat\Cat('12');
 $approvedGenders = $newCat_class->setAllowedGenders();
-var_dump($approvedGenders);
+//var_dump($approvedGenders);
 
 $newCatData = [];
 
@@ -37,11 +37,9 @@ var_dump($newCatData);
     </div>
     <div class="entry">
         <label>Gender</label>
-        <!--<input type="text" name="cat_gender" value="<?=$newCatGender?>" maxlength="30" size="8" />-->
         <select name="cat_gender">
             <option value="Select A Gender">Select A Gender</option>
-        <?php
-        foreach ($approvedGenders as $key => $val) :
+        <?php foreach ($approvedGenders as $key => $val) :
             echo "<option value='".$key."'>".$key."</option>";
          endforeach; ?>
         </select>
@@ -58,11 +56,11 @@ var_dump($newCatData);
         <label>Hair Length</label>
         <input type="text" name="cat_hair_length" value="<?=$newCatHairLength?>" maxlength="30" size="8" />
     </div>
-    </div>
 
     <div class="entry">
         <input type="submit" value="Create Cat Now" id="submit" name="create_cat" />
     </div>
     <input type="hidden" name="hid-submit" value="1" />
 </form>
+
 <?php include "views/footer.php";?>
