@@ -289,4 +289,8 @@ class Cat {
     public function getAllCats() {
         return $this->database->getAllRows();
     }
+
+    public function deleteCatRecord($id) {
+        return $this->database->deleteRow($id);
+    }
 }

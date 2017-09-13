@@ -43,6 +43,9 @@ $new_cat = [
 //$getAllCats = $db->getAllRows();
 //$addRecord = $test->addCatRecord($new_cat);
 //echo $addRecord;
+
+//$deleteTest = $test->deleteCatRecord(13);
+//echo $deleteTest;
 ?>
 
 <?php

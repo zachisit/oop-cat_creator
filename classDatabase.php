@@ -165,9 +165,9 @@ class database
             $stmt = $this->databaseData->prepare("DELETE FROM users WHERE id = '{$id}'");
             //@TODO: check if record exists first, create if/else around this
             $stmt->execute();
-            echo 'record deleted successfully';
+            return 'record deleted successfully';
         } catch (\PDOException $e) {
-            echo $e->getMessage();
+            return $e->getMessage();
         }
     }
 }
