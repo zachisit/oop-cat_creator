@@ -56,10 +56,11 @@ $new_cat = [
 //save into array
 //print_r($fetch_all_cats);
 ?>
-<br /><br />
-<table>
+<h2 class="page_heading">View Our Current Cats</h2>
+<table id="cat_list">
     <thead>
     <tr>
+        <td></td>
         <td>ID</td>
         <td>Cat Name</td>
         <td>Age</td>
@@ -80,6 +81,7 @@ $new_cat = [
         foreach( $fudge as $record)
         {
             echo '<tr>';
+            echo '<td><i class="fa fa-paw" aria-hidden="true"></i></td>';
             echo '<td>' . $record['id'] . '</td>';
             echo '<td>' . $record['catName'] . '</td>';
             echo '<td>' . $record['age'] . '</td>';

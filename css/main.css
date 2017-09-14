@@ -1,30 +1,56 @@
 /**
- * Results Table
+ * Globalized
  */
-table {
-    border:1px solid;
+body {
+    font-family:"Droid Serif", sans-serif;
 }
-table thead {
-    background:#cccccc;
-    border-bottom:1px solid black;
-    font-weight:bold;
-}
-table tbody tr {
-    border-bottom:1px solid black;
-}
-table tbody tr {
+h2.page_heading {
     text-align:center;
+    font-weight:100;
+    padding:0;
+    margin:2em 0;
+    color:#333;
 }
 
 /**
- * Home Input Form
+ * Results Table
  */
-.error {
+#cat_list {
+    border:1px solid;
+    width:100%;
+    float:left;
+}
+#cat_list thead {
+    background:#D8D8D8;
+    border-bottom:1px solid black;
+    font-weight:bold;
+    text-align:center;
+}
+#cat_list tbody tr {
+    border-bottom:1px solid black;
+    text-align:center;
+}
+#cat_list tbody tr:nth-child(odd) {
+    background:#fffced;
+}
+
+    /**
+     * Home Input Form
+     */
+#error {
     background:red;
-    color:white;
     text-align:center;
     width:100%;
     float:left;
+}
+#error p {
+    color:white;
+    text-align:center;
+    max-width:80%;
+    margin:auto;
+    font-weight:500;
+    padding:1em 0;
+    font-size:1em;
 }
 form .entry {
     text-align:center;

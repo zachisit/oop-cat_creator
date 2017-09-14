@@ -13,7 +13,7 @@ class Cat {
     private $catName;//string name of cat
     private $catWeight;//number weight of cat
     private $catGender;//string gender of cat
-    private $catColoring;//string color of cat
+    private $catColoring = [];//array color of cat
     private $catCurrentMood;//string mood of cat
     private $catHairLength;//string of hair length of cat
     private $catCattitude = false;//bool
