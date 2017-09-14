@@ -1,0 +1,120 @@
+/**
+ * Globalized
+ */
+body {
+  font-family:"Droid Serif", sans-serif;
+}
+h2.page_heading {
+  text-align:center;
+  font-weight:100;
+  padding:0;
+  margin:2em 0;
+  color:#333;
+}
+
+/**
+ * Results Table
+ */
+#cat_list {
+  border:1px solid;
+  width:100%;
+  float:left;
+
+  thead {
+    background:#D8D8D8;
+    border-bottom:1px solid black;
+    font-weight:bold;
+    text-align:center;
+  }
+
+  tbody tr {
+    border-bottom:1px solid black;
+    text-align:center;
+  }
+
+  &:nth-child(odd) {
+    background:#fffced;
+  }
+}
+
+/**
+ * Home Input Form
+ */
+#error {
+  background:red;
+  text-align:center;
+  width:100%;
+  float:left;
+
+  p {
+    color:white;
+    text-align:center;
+    max-width:80%;
+    margin:auto;
+    font-weight:500;
+    padding:1em 0;
+    font-size:1em;
+  }
+}
+
+#new_cat_form {
+
+  .entry {
+    text-align:center;
+    width:100%;
+    float:left;
+    color:#333;
+
+    #submit {
+      width:90%;
+      background:green;
+      padding:10px;
+      margin:20px auto;
+      display:table;
+      text-align:center;
+      color:white;
+      font-size:16px;
+      font-weight:500;
+      -webkit-border-radius:10px;
+      -moz-border-radius:10px;
+      border-radius:10px;
+    }
+  }
+
+  label {
+    text-align:center;
+    font-size:18px;
+    float:left;
+    font-weight:100;
+    width:100%;
+    margin:20px 0 0 0;
+  }
+
+  input, select {
+    width:90%;
+    margin:0 auto;
+    padding:5px;
+    font-size:16px;
+    text-align:center;
+    border:1px solid #ccc;
+    -webkit-border-radius:10px;
+    -moz-border-radius:10px;
+    border-radius:10px;
+
+    option {
+      text-align:center;
+    }
+  }
+}
+
+/**
+ * Footer
+ */
+footer {
+  width:100%;
+  float:left;
+  text-align:center;
+  font-size:13px;
+  color:#555;
+  margin:30px 0 0 0;
+}

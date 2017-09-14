@@ -34,9 +34,9 @@ h2.page_heading {
     background:#fffced;
 }
 
-    /**
-     * Home Input Form
-     */
+/**
+ * Home Input Form
+*/
 #error {
     background:red;
     text-align:center;
@@ -62,7 +62,7 @@ form .entry label {
     text-align:center;
     font-size:18px;
     float:left;
-    font-weight:900;
+    font-weight:100;
     width:100%;
     margin:20px 0 0 0;
 }

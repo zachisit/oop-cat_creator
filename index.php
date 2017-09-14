@@ -10,41 +10,12 @@ require_once "classCat.php";
 
 $test = new Cat("septthirteen");
 
-$fudge = $test->getAllCats();
-//var_dump($fudge);
+$getAllRecords = $test->getAllCats();
+
+//var_dump($getAllRecords);
 //var_dump($test->getAllCats());
 ?>
-
-<?php
-//delete a record
-//$delete_a_cat = $db->deleteRow('12');
-
-//create new cat and push to database
-
-$today_time = date('Y-m-d h:i:s');
-
-$new_cat = [
-    'catName' => 'ray ray',
-    'age' => '34',
-    'gender' => 'female',
-    'createTime' => $today_time,
-    'coloring' => 'brown',
-    'hairLength' => 'medium',
-    'currentMood' => 'rowdy',
-    'weight' => '121',
-    'hasCatittude' => 0,
-    'id' => '12'
-];
-
-//$addNewCat = $db->insertRow($new_cat);
-//$getAllCats = $db->getAllRows();
-//$addRecord = $test->addCatRecord($new_cat);
-//echo $addRecord;
-
-//$deleteTest = $test->deleteCatRecord(12);
-//echo $deleteTest;
-?>
-
+    
 <?php
 //$cats_are_brown = $db->getRowsByCategory('gender', 'male');
 ?>
@@ -78,7 +49,7 @@ $new_cat = [
         <?php
         $yes = '1';
 
-        foreach( $fudge as $record)
+        foreach( $getAllRecords as $record)
         {
             echo '<tr>';
             echo '<td><i class="fa fa-paw" aria-hidden="true"></i></td>';

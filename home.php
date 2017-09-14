@@ -58,7 +58,7 @@ $newCat_class->addCatRecord($newCatDatabaseRecord);
 <div id="error"><p>Error: <?=$error_message?></p></div>
 <?php endif; ?>
 
-<form name="cat_creation" method="post">
+<form id="new_cat_form" name="cat_creation" method="post">
     <div class="entry">
         <label>Cat Name</label>
         <input type="text" name="cat_name" value="<?=$newCatName?>" maxlength="30" size="8" />
