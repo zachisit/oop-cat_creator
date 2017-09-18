@@ -40,9 +40,7 @@ h2.page_heading {
 /**
  * Home Input Form
  */
-#error {
-  background:red;
-  text-align:center;
+#formSubmitMessage {
   width:100%;
   float:left;
 
@@ -54,6 +52,14 @@ h2.page_heading {
     font-weight:500;
     padding:1em 0;
     font-size:1em;
+  }
+
+  &.error {
+    background:red;
+  }
+
+  &.success {
+    background:green;
   }
 }
 

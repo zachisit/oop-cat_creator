@@ -5,10 +5,9 @@
 namespace Cat;
 
 include "views/header.php";
-
 require_once "classCat.php";
 
-$test = new Cat("septthirteen");
+$test = new Cat();
 
 $getAllRecords = $test->getAllCats();
 
@@ -67,7 +66,6 @@ $getAllRecords = $test->getAllCats();
             } else {
                 echo '<td>Nope</td>';
             }
-            //echo '<td>' . $record['hasCatittude'] . '</td>';
             echo '</tr>';
         }
         ?>

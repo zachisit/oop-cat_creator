@@ -23,7 +23,7 @@ class Cat {
      * Cat constructor.
      * @param $name
      */
-    public function __construct($name)
+    public function __construct($name = null)
     {
         //pass in name, if no name then set to null
         $this->catName = $name ?? null;

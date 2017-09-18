@@ -5,8 +5,10 @@
 
 include "views/header.php";
 include 'classCat.php';
-include 'classUtility.php'; ?>
-<?php
+include 'classUtility.php';
+include 'classValidation.php';
+
+
 $today_time = date('Y-m-d h:i');
 
 $newCat_class = new \Cat\Cat('12');//@todo remove need to pass in name
@@ -29,27 +31,31 @@ if (isset($_POST['create_cat'])) {
     $newCatData[5] = $_POST['cat_color'];
     $newCatData[6] = $_POST['cat_mood'];
     $newCatData[7] = $_POST['cat_hair_length'];
+    $newCatData[8] = $_POST['cat_has_catitude'];
+
+    $newCatDatabaseRecord = [
+        'catName' => $newCatData[1],
+        'age' => $newCatData[2],
+        'gender' => $newCatData[4],
+        'createTime' => $time,
+        'coloring' => $newCatData[5],
+        'hairLength' => $newCatData[7],
+        'currentMood' => $newCatData[6],
+        'weight' => $newCatData[3],
+        'hasCatittude' => $newCatData[8],
+    ];
+
+    new Validation($newCatDatabaseRecord);
+
 
     //error block
-    if ( !($newCatData[1]) ) {
+    /*if ( !($newCatData[1]) ) {
         $error_message = 'Missing value in an input field.';
-    }
+    }*/
 }
 
 //var_dump($newCatData);
 
-$newCatDatabaseRecord = [
-    'catName' => $newCatData[1],
-    'age' => $newCatData[2],
-    'gender' => $newCatData[4],
-    'createTime' => $time,
-    'coloring' => $newCatData[5],
-    'hairLength' => $newCatData[7],
-    'currentMood' => $newCatData[6],
-    'weight' => $newCatData[3],
-    'hasCatittude' => 0,
-    //'id' => '13'
-];
 
 $newCat_class->addCatRecord($newCatDatabaseRecord);
 
@@ -61,15 +67,15 @@ $newCat_class->addCatRecord($newCatDatabaseRecord);
 <form id="new_cat_form" name="cat_creation" method="post">
     <div class="entry">
         <label>Cat Name</label>
-        <input type="text" name="cat_name" value="<?=$newCatName?>" maxlength="30" size="8" />
+        <input type="text" name="cat_name" value="<?=$newCatData[1]?>" maxlength="30" size="8" />
     </div>
     <div class="entry">
         <label>Age</label>
-        <input type="number" name="cat_age" value="<?=$newCatAge?>" maxlength="30" size="8" />
+        <input type="number" name="cat_age" value="<?=$newCatData[2]?>" maxlength="30" size="8" />
     </div>
     <div class="entry">
         <label>Weight</label>
-        <input type="number" name="cat_weight" value="<?=$newCatWeight?>" maxlength="30" size="8" />
+        <input type="number" name="cat_weight" value="<?=$newCatData[3]?>" maxlength="30" size="8" />
     </div>
     <div class="entry">
         <label>Gender</label>
@@ -111,7 +117,7 @@ $newCat_class->addCatRecord($newCatDatabaseRecord);
     <div class="entry">
         <input type="submit" value="Create Cat Now" id="submit" name="create_cat" />
     </div>
-    <input type="hidden" name="hid-submit" value="1" />
+    <input type="hidden" name="cat_has_catitude" value="0" />
 </form>
 
 <?php include "views/footer.php";?>
