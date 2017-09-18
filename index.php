@@ -41,6 +41,7 @@ $getAllRecords = $test->getAllCats();
         <td>Current Mood</td>
         <td>Weight</td>
         <td>Have Catittude?</td>
+        <td>Edit</td>
     </tr>
     </thead>
     <tbody>
@@ -66,6 +67,7 @@ $getAllRecords = $test->getAllCats();
             } else {
                 echo '<td>Nope</td>';
             }
+            echo '<td><a href="" title="edit">edit</a>';
             echo '</tr>';
         }
         ?>

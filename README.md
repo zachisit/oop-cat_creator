@@ -1,5 +1,9 @@
-# oop-cat_creator
+#oop-cat_creator
 Creating and editing cat user records, using PHP, PDO, and OOP
 
-Project Location
+####Project Location
 * https://zsmith-sandbox.efsnetworks.com/cat_creator/
+
+####Dependencies
+* jQuery
+* [TableSorter](https://github.com/Mottie/tablesorter)
