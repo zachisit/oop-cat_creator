@@ -82,7 +82,7 @@ $newCat_class->addCatRecord($newCatDatabaseRecord);
         <select name="cat_gender">
             <option value="Select A Gender">Select A Gender</option>
         <?php foreach ($approvedGenders as $key => $val) :
-            echo "<option value='".$key."'>".$key."</option>";
+            echo '<option value="'.$key.'">'.$key.'</option>';
          endforeach; ?>
         </select>
     </div>

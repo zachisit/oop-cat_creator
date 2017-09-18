@@ -27,7 +27,7 @@ $getAllRecords = $test->getAllCats();
 //print_r($fetch_all_cats);
 ?>
 <h2 class="page_heading">View Our Current Cats</h2>
-<table id="cat_list">
+<table id="cat_list" class="tablesorter">
     <thead>
     <tr>
         <td></td>
