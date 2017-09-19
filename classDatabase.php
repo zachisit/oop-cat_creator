@@ -55,8 +55,10 @@ class Database
      */
     public function getConnection()
     {
-        if (!$this->db)
+        if (!$this->db) {
             $this->db = new PDO(DB_TYPE.':host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
+        }
+
         return $this->db;
     }
 
@@ -154,9 +156,11 @@ class Database
      */
     public function insertRow($data) {
         //@TODO: check if not empty data, etc
+        $db = self::getConnection();
+
         try
         {
-            $stmt = $this->databaseData->prepare("INSERT INTO users (" . implode(', ', array_keys($data)) . ") VALUES (:" . implode(', :', array_keys($data)) . ")");
+            $stmt = $db->prepare("INSERT INTO users (" . implode(', ', array_keys($data)) . ") VALUES (:" . implode(', :', array_keys($data)) . ")");
 
             foreach($data as $key => $value) {
                 $stmt->bindValue($key, $value, PDO::PARAM_STR);

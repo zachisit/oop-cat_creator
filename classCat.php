@@ -281,7 +281,9 @@ class Cat {
      * @return string
      */
     public function addCatRecord($catData) {
-        return $this->database->insertRow($catData);
+        //return $this->database->insertRow($catData);
+        $db = Database::getFactory();
+        $db->insertRow($catData);
     }
 
     /**

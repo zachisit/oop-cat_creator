@@ -8,14 +8,14 @@ namespace Cat;
 class Utility {
     public $currentDateTime;
 
-    public function __construct() {
+    public function __construct()
+    {
         //do nothing
     }
 
-    public function getDateTime() {
+    public static function getDateTime()
+    {
         $timeRightNow = date('Y-m-d h:i:s');
-
-        $this->currentDateTime = $timeRightNow;
 
         return $timeRightNow;
     }

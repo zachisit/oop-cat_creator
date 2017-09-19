@@ -17,8 +17,7 @@ $approvedColors = $newCat_class->setAllowedColorings();
 $approvedMoods = $newCat_class->setApprovedMood();
 $approvedHairLength = $newCat_class->checkIsHairLengthApproved();
 
-$newUtility = new \Cat\Utility();
-$time = $newUtility->getDateTime();
+$time = \Cat\Utility::getDateTime();
 
 
 $newCatData = [];
@@ -82,7 +81,10 @@ $newCat_class->addCatRecord($newCatDatabaseRecord);
         <select name="cat_gender">
             <option value="Select A Gender">Select A Gender</option>
         <?php foreach ($approvedGenders as $key => $val) :
-            echo '<option value="'.$key.'">'.$key.'</option>';
+            $option = '<option value="'.$key.'"';
+            $option .= ($key == $newCatData[4]) ? ' selected' : '';
+            $option .= ">{$key}</option>";
+            echo $option;
          endforeach; ?>
         </select>
     </div>
