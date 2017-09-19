@@ -29,7 +29,7 @@ class Cat {
         $this->catName = $name ?? null;
 
         //create new db connection
-        $this->database = new database();
+        //$this->database = Database::getFactory()->getConnection();
     }
 
     /**
@@ -98,7 +98,8 @@ class Cat {
             //gender => pronoun usage
             'male' => 'him',
             'female' => 'her',
-            'gender fluid' => 'it'
+            'genderfluid' => 'it',
+            'non-binary' => 'it'
         ];
 
         return $approved_gender;
@@ -288,7 +289,16 @@ class Cat {
      * @return array
      */
     public function getAllCats() {
-        return $this->database->getAllRows();
+        $getAllRows = Database::getFactory()->getConnection();
+
+        try
+        {
+            $stmt = $getAllRows->prepare("SELECT * FROM users");
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (\PDOException $e) {
+            echo $e->getMessage();
+        }
     }
 
     /**

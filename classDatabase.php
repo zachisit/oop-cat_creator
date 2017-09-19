@@ -12,19 +12,22 @@ use PDOException;
 
 include 'config.php';
 
-class database
+class Database
 {
     public $isConnected;//are we connected?
     protected $databaseData;//protected only use in this class
     protected $recordID;//record id in database, used for deleting
 
+    private static $factory = false;
+    private $db;
+
     /**
      * database constructor.
      * @param array $options
      */
-    public function __construct($options=[])
+    public function __construct(/*$options=[]*/)
     {
-        $this->isConnected = TRUE;//if true then we connected to db
+        /*$this->isConnected = TRUE;//if true then we connected to db
 
         //connect to db
         try {
@@ -32,7 +35,29 @@ class database
             $this->databaseData->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             return "connection failed: " . $e->getMessage() . "<br /><br />";
-        }
+        }*/
+    }
+
+    /**
+     * Get Factory
+     * @return bool|Database
+     */
+    public static function getFactory()
+    {
+        if (!self::$factory)
+            self::$factory = new Database();
+        return self::$factory;
+    }
+
+    /**
+     * Get Connection
+     * @return PDO
+     */
+    public function getConnection()
+    {
+        if (!$this->db)
+            $this->db = new PDO(DB_TYPE.':host='.DB_HOST.';dbname='.DB_NAME, DB_USER, DB_PASS);
+        return $this->db;
     }
 
     /**
@@ -71,7 +96,7 @@ class database
     {
         try
         {
-            $stmt = $this->databaseData->prepare("SELECT * FROM users");
+            $stmt = $this->db->prepare("SELECT * FROM users");
             $stmt->execute();
             return $stmt->fetchAll();
         } catch (\PDOException $e) {
