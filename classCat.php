@@ -289,6 +289,23 @@ class Cat {
         $db->insertRow($catData);
     }
 
+    public function editCatRecord($catData) {
+        $db = Database::getFactory()->getConnection();
+
+        try
+        {
+            $stmt = $db->prepare("UPDATE users (" . implode(', ', array_keys($catData)) . ") VALUES (:" . implode(', :', array_keys($catData)) . ")");
+
+            foreach($catData as $key => $value) {
+                $stmt->bindValue($key, $value, PDO::PARAM_STR);
+            }
+            $stmt->execute();
+            return 'record created successfully';
+        } catch (\PDOException $e) {
+            return 'Adding new record failed' . $e->getMessage();
+        }
+    }
+
     /**
      * Return All Cat Records
      * @return array

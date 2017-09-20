@@ -30,7 +30,7 @@ $getAllRecords = $test->getAllCats();
 <table id="cat_list" class="tablesorter">
     <thead>
     <tr>
-        <td></td>
+        <td class="no_sort"></td>
         <td>ID</td>
         <td>Cat Name</td>
         <td>Age</td>
@@ -41,7 +41,8 @@ $getAllRecords = $test->getAllCats();
         <td>Current Mood</td>
         <td>Weight</td>
         <td>Have Catittude?</td>
-        <td>Edit</td>
+        <td class="no_sort">Edit</td>
+        <td class="no_sort">Delete</td>
     </tr>
     </thead>
     <tbody>
@@ -68,6 +69,7 @@ $getAllRecords = $test->getAllCats();
                 echo '<td>Nope</td>';
             }
             echo '<td><a href="edit.php?id=' . $record['id'] . '" title="edit">edit</a>';
+            echo '<td><i class="fa fa-trash-o" aria-hidden="true"></i></td>';
             echo '</tr>';
         }
         ?>

@@ -48,7 +48,7 @@ if (isset($_POST['create_cat'])) {
 
     new Validation($newCatDatabaseRecord);
 }
-$newCat_class->addCatRecord($newCatDatabaseRecord);
+$newCat_class->editCatRecord($newCatDatabaseRecord);
 
 if (!empty($error_message)) : ?>
     <div id="error"><p>Error: <?=$error_message?></p></div>
@@ -114,7 +114,7 @@ if (!empty($error_message)) : ?>
         </div>
 
         <div class="entry">
-            <input type="submit" value="Update This Cat" id="submit" name="create_cat" />
+            <input type="submit" value="Update This Cat" id="submit" name="update_cat" />
         </div>
         <input type="hidden" name="cat_has_catitude" value="0" />
     </form>
