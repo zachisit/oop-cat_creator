@@ -15,3 +15,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.tablesorter/2.28.15/css/theme.default.min.css">
 </head>
 <body>
+<div id="header">
+    <a href="home.php" title="add new cat">add new cat</a>
+</div>

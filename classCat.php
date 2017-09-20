@@ -30,6 +30,10 @@ class Cat {
 
         //create new db connection
         //$this->database = Database::getFactory()->getConnection();
+
+        $newCatData = [];
+
+        return $newCatData;
     }
 
     /**
@@ -96,10 +100,9 @@ class Cat {
         //list approved genders
         $approved_gender = [
             //gender => pronoun usage
-            'male' => 'him',
-            'female' => 'her',
-            'genderfluid' => 'it',
-            'non-binary' => 'it'
+            'Male' => 'him',
+            'Female' => 'her',
+            'Genderfluid' => 'it'
         ];
 
         return $approved_gender;
@@ -155,11 +158,11 @@ class Cat {
         //list of approved cat colors
         //related to hex colors
         $allowed_colorings = [
-            'black' => '#000000',
-            'gray' => '#808080',
-            'brown' => '#A5682A',
-            'calico' => '#D5B185',
-            'white' => '#FFFFFF'
+            'Black' => '#000000',
+            'Gray' => '#808080',
+            'Brown' => '#A5682A',
+            'Calico' => '#D5B185',
+            'White' => '#FFFFFF'
         ];
 
         return $allowed_colorings;
@@ -241,9 +244,9 @@ class Cat {
      */
     public function checkIsHairLengthApproved() {
         $approved_hairlength = [
-            'short',
-            'long',
-            'hairless'
+            'Short',
+            'Long',
+            'Hairless'
         ];
 
         return $approved_hairlength;
@@ -295,7 +298,7 @@ class Cat {
 
         try
         {
-            $stmt = $getAllRows->prepare("SELECT * FROM users");
+            $stmt = $getAllRows->prepare("SELECT * FROM users ORDER BY id DESC");
             $stmt->execute();
             return $stmt->fetchAll();
         } catch (\PDOException $e) {

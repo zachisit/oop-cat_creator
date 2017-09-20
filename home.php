@@ -9,8 +9,6 @@ include 'classUtility.php';
 include 'classValidation.php';
 
 
-$today_time = date('Y-m-d h:i');
-
 $newCat_class = new \Cat\Cat('12');//@todo remove need to pass in name
 $approvedGenders = $newCat_class->setAllowedGenders();
 $approvedColors = $newCat_class->setAllowedColorings();
@@ -18,9 +16,6 @@ $approvedMoods = $newCat_class->setApprovedMood();
 $approvedHairLength = $newCat_class->checkIsHairLengthApproved();
 
 $time = \Cat\Utility::getDateTime();
-
-
-$newCatData = [];
 
 if (isset($_POST['create_cat'])) {
     $newCatData[1] = $_POST['cat_name'];
@@ -45,21 +40,10 @@ if (isset($_POST['create_cat'])) {
     ];
 
     new Validation($newCatDatabaseRecord);
-
-
-    //error block
-    /*if ( !($newCatData[1]) ) {
-        $error_message = 'Missing value in an input field.';
-    }*/
 }
-
-//var_dump($newCatData);
-
-
 $newCat_class->addCatRecord($newCatDatabaseRecord);
 
-?>
-<?php if (!empty($error_message)) : ?>
+if (!empty($error_message)) : ?>
 <div id="error"><p>Error: <?=$error_message?></p></div>
 <?php endif; ?>
 
@@ -93,7 +77,10 @@ $newCat_class->addCatRecord($newCatDatabaseRecord);
         <select name="cat_color">
             <option value="Select A Color">Select A Color</option>
             <?php foreach ($approvedColors as $key => $val) :
-                echo "<option value='".$key."'>".$key."</option>";
+                $option = '<option value="'.$key.'"';
+                $option .= ($key == $newCatData[5]) ? ' selected' : '';
+                $option .= ">{$key}</option>";
+                echo $option;
             endforeach; ?>
         </select>
     </div>
@@ -102,7 +89,10 @@ $newCat_class->addCatRecord($newCatDatabaseRecord);
         <select name="cat_mood">
             <option value="Select A Mood">Select A Mood</option>
             <?php foreach ($approvedMoods as $key => $val) :
-                echo "<option value='".$key."'>".$key."</option>";
+                $option = '<option value="'.$key.'"';
+                $option .= ($key == $newCatData[6]) ? ' selected' : '';
+                $option .= ">{$key}</option>";
+                echo $option;
             endforeach; ?>
         </select>
     </div>
