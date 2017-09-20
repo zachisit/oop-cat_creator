@@ -73,21 +73,19 @@ class Database
 
     /**
      * Get Row
-     * @param $query
-     * @param array $params
+     * @param $id
+     * @deprecated - moved to \Cat\getSingleCatByID
      */
-    //get one single row
-    //@todo finish this out
     public function getRow($id)
     {
-        try
+        /*try
         {
             $stmt = $this->databaseData->prepare("SELECT * FROM users WHERE id=$id");
             $stmt->execute();
             return $stmt->fetch();
         } catch (\PDOException $e) {
             return $e->getMessage();
-        }
+        }*/
     }
 
     /**

@@ -321,6 +321,15 @@ class Cat {
      * @return mixed|string
      */
     public function getSingleCatByID($id) {
-        return $this->database->getRow($id);
+        $getCatRow = Database::getFactory()->getConnection();
+
+        try
+        {
+            $stmt = $getCatRow->prepare("SELECT * FROM users WHERE id=$id");
+            $stmt->execute();
+            return $stmt->fetch();
+        } catch (\PDOException $e) {
+            return $e->getMessage();
+        }
     }
 }

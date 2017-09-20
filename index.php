@@ -67,7 +67,7 @@ $getAllRecords = $test->getAllCats();
             } else {
                 echo '<td>Nope</td>';
             }
-            echo '<td><a href="" title="edit">edit</a>';
+            echo '<td><a href="edit.php?id=' . $record['id'] . '" title="edit">edit</a>';
             echo '</tr>';
         }
         ?>
