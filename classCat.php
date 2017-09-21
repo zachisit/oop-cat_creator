@@ -18,6 +18,7 @@ class Cat {
     private $catHairLength;//string of hair length of cat
     private $catCattitude = false;//bool
     private $database;
+    private $catID;
 
     /**
      * Cat constructor.
@@ -289,20 +290,43 @@ class Cat {
         $db->insertRow($catData);
     }
 
-    public function editCatRecord($catData) {
+    public function editCatRecord($catData, $id) {
         $db = Database::getFactory()->getConnection();
 
         try
         {
-            $stmt = $db->prepare("UPDATE users (" . implode(', ', array_keys($catData)) . ") VALUES (:" . implode(', :', array_keys($catData)) . ")");
+            $stmt = $db->prepare("UPDATE users (" . implode(', ', array_keys($catData)) . ") VALUES (:" . implode(', :', array_keys($catData)) . ") WHERE id = :id");
 
             foreach($catData as $key => $value) {
-                $stmt->bindValue($key, $value, PDO::PARAM_STR);
+                $stmt->bindValue($key, $value, PDO::PARAM_STR, ':id', $id);
+                /*
+                 * UPDATE `directory`
+SET `First_Name` = :firstname, `Surname` = :surname, `Nicknames` = :nicknames
+WHERE ID = :cid
+                 */
             }
             $stmt->execute();
             return 'record created successfully';
         } catch (\PDOException $e) {
             return 'Adding new record failed' . $e->getMessage();
+        }
+    }
+
+    public function deleteCat($catID)
+    {
+        $catID = $this->catID;
+
+        $db = Database::getFactory()->getConnection();
+
+        try
+        {
+            $stmt = $db->prepare("DELETE FROM users WHERE id = :catID");
+
+            $stmt->bindValue(':catID', $catID);
+            $stmt->execute();
+            return 'record deleted successfully';
+        } catch (\PDOException $e) {
+            return 'Deleting record failed' . $e->getMessage();
         }
     }
 

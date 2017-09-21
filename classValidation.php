@@ -63,7 +63,7 @@ class Validation
      */
     public function displaySuccessMessage()
     {
-        echo '<div id="message" class="success"><p>New Cat is now added. Review all cats here <a href="index.php">here</a></p></div>';
+        echo '<div id="message" class="success"><p>New Cat is now added</p></div>';
     }
 
     /**

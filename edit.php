@@ -4,9 +4,9 @@
  */
 
 include "views/header.php";
-include 'classCat.php';
-include 'classUtility.php';
-include 'classValidation.php';
+require_once 'classCat.php';
+require_once 'classUtility.php';
+require_once 'classValidation.php';
 
 
 $newCat_class = new \Cat\Cat();
@@ -24,6 +24,8 @@ $currentCatData = $newCat_class->getSingleCatByID($catId);
 
 $existing_cat_data = [];
 
+echo $_POST['cat_name'];
+
 if (isset($_POST['create_cat'])) {
     $newCatData[1] = $_POST['cat_name'];
     $newCatData[2] = $_POST['cat_age'];
@@ -34,7 +36,7 @@ if (isset($_POST['create_cat'])) {
     $newCatData[7] = $_POST['cat_hair_length'];
     $newCatData[8] = $_POST['cat_has_catitude'];
 
-    $newCatDatabaseRecord = [
+    $existingCatDatabaseRecord = [
         'catName' => $newCatData[1],
         'age' => $newCatData[2],
         'gender' => $newCatData[4],
@@ -46,9 +48,9 @@ if (isset($_POST['create_cat'])) {
         'hasCatittude' => $newCatData[8],
     ];
 
-    new Validation($newCatDatabaseRecord);
+    new Validation($existingCatDatabaseRecord);
 }
-$newCat_class->editCatRecord($newCatDatabaseRecord);
+$newCat_class->editCatRecord($existingCatDatabaseRecord, $catId);
 
 if (!empty($error_message)) : ?>
     <div id="error"><p>Error: <?=$error_message?></p></div>
@@ -57,15 +59,15 @@ if (!empty($error_message)) : ?>
     <form id="new_cat_form" name="cat_creation" method="post">
         <div class="entry">
             <label>Cat Name</label>
-            <input type="text" name="cat_name" value="<?=$currentCatData['catName']?>" maxlength="30" size="8" />
+            <input type="text" name="cat_name" placeholder="<?=$currentCatData['catName']?>" maxlength="30" size="8" />
         </div>
         <div class="entry">
             <label>Age</label>
-            <input type="number" name="cat_age" value="<?=$currentCatData['age']?>" maxlength="30" size="8" />
+            <input type="number" name="cat_age" placeholder="<?=$currentCatData['age']?>" maxlength="30" size="8" />
         </div>
         <div class="entry">
             <label>Weight</label>
-            <input type="number" name="cat_weight" value="<?=$currentCatData['weight']?>" maxlength="30" size="8" />
+            <input type="number" name="cat_weight" placeholder="<?=$currentCatData['weight']?>" maxlength="30" size="8" />
         </div>
         <div class="entry">
             <label>Gender</label>
@@ -112,11 +114,14 @@ if (!empty($error_message)) : ?>
                 endforeach; ?>
             </select>
         </div>
+        <div class="entry">
+            <label>Does Cat Have Catitude?</label>
+            <input type="number" name="cat_has_catitude" placeholder="<?=$currentCatData['cat_has_catitude']?>" maxlength="30" size="8" />
+        </div>
 
         <div class="entry">
             <input type="submit" value="Update This Cat" id="submit" name="update_cat" />
         </div>
-        <input type="hidden" name="cat_has_catitude" value="0" />
     </form>
 
 <?php include "views/footer.php";?>

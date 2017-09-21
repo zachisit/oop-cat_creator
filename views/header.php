@@ -16,5 +16,8 @@
 </head>
 <body>
 <div id="header">
-    <a href="home.php" title="add new cat">add new cat</a>
+    <ul id="navigation">
+        <li><a href="index.php" title="home"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+        <li><a href="home.php" title="add new cat"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
+    </ul>
 </div>

@@ -3,6 +3,8 @@
  */
 body {
     font-family:"Droid Serif", sans-serif;
+    margin:0;
+    padding:0;
 }
 h2.page_heading {
     text-align:center;
@@ -11,27 +13,25 @@ h2.page_heading {
     margin:2em 0;
     color:#333;
 }
-
 /**
- * Results Table
+ * Header Navigation
  */
-#cat_list {
-    border:1px solid;
-    width:100%;
-    float:left;
+#navigation {
+    list-style-type:none;
+    padding:0.5em 2em;
+    background:#eafcff;
+    margin:0;
 }
-#cat_list thead {
-    background:#D8D8D8;
-    border-bottom:1px solid black;
-    font-weight:bold;
-    text-align:center;
+#navigation li {
+    display:inline;
+    padding:0 0.8em 0 0;
 }
-#cat_list tbody tr {
-    border-bottom:1px solid black;
-    text-align:center;
+#navigation li a {
+    font-size:1.5em;
+    color:#333;
 }
-#cat_list tbody tr:nth-child(odd) {
-    background:#fffced;
+#navigation li a:hover {
+    color:#ccc;
 }
 
 /**

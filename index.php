@@ -68,7 +68,7 @@ $getAllRecords = $test->getAllCats();
             } else {
                 echo '<td>Nope</td>';
             }
-            echo '<td><a href="edit.php?id=' . $record['id'] . '" title="edit">edit</a>';
+            echo '<td><a href="edit.php?id=' . $record['id'] . '" title="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
             echo '<td><i class="fa fa-trash-o" aria-hidden="true"></i></td>';
             echo '</tr>';
         }

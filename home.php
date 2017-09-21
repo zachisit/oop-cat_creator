@@ -4,9 +4,9 @@
  */
 
 include "views/header.php";
-include 'classCat.php';
-include 'classUtility.php';
-include 'classValidation.php';
+require_once 'classCat.php';
+require_once 'classUtility.php';
+require_once 'classValidation.php';
 
 
 $newCat_class = new \Cat\Cat('12');//@todo remove need to pass in name
@@ -46,7 +46,7 @@ $newCat_class->addCatRecord($newCatDatabaseRecord);
 if (!empty($error_message)) : ?>
 <div id="error"><p>Error: <?=$error_message?></p></div>
 <?php endif; ?>
-
+    <h2 class="page_heading">Create Your New Cat</h2>
 <form id="new_cat_form" name="cat_creation" method="post">
     <div class="entry">
         <label>Cat Name</label>
