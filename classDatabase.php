@@ -173,27 +173,30 @@ class Database
     /**
      * Update Record Row
      * @param $data
+     * @param $catID
      * @return string
      */
     public function updateRow($data, $catID)
     {
-        //var_dump($data);
-
-        //@TODO: check if not empty data, etc
         $db = self::getConnection();
 
         try
         {
-            $stmt = $db->prepare("UPDATE users SET " . implode(', :', array_keys($data)) . ") WHERE id = '{$catID}'");
-            //$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
+            foreach($data as $key => $value) {
+                $columns[] = '' . $key . '=' . $value;
+            }
+
+            $stmt = $db->prepare("UPDATE users SET " . implode(', ', $columns). " WHERE id=:catID");
 
             print_r($stmt);
 
             foreach($data as $key => $value) {
                 $stmt->bindValue($key, $value, PDO::PARAM_STR);
             }
+
+            $stmt->bindValue(':catID', $catID, PDO::PARAM_INT);
+
             $stmt->execute();
-            return 'record created successfully';
         } catch (\PDOException $e) {
             return 'Adding new record failed' . $e->getMessage();
         }
@@ -206,6 +209,7 @@ class Database
      */
     public function deleteRow($id)
     {
+        //@TODO:using wrong way to pass in variable, refer to updateRow()
         $this->recordID = $id;
 
         if ($id == '') {

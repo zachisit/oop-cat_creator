@@ -44,6 +44,7 @@ if (isset($_POST['update_cat'])) {
         'currentMood' => $newCatData[6],
         'weight' => $newCatData[3],
         'hasCatittude' => $newCatData[8],
+        //@TODO: remove create time as not needed when updating
     ];
 
     new Validation($existingCatDatabaseRecord);
