@@ -24,9 +24,7 @@ $currentCatData = $newCat_class->getSingleCatByID($catId);
 
 $existing_cat_data = [];
 
-echo $_POST['cat_name'];
-
-if (isset($_POST['create_cat'])) {
+if (isset($_POST['update_cat'])) {
     $newCatData[1] = $_POST['cat_name'];
     $newCatData[2] = $_POST['cat_age'];
     $newCatData[3] = $_POST['cat_weight'];
@@ -50,6 +48,7 @@ if (isset($_POST['create_cat'])) {
 
     new Validation($existingCatDatabaseRecord);
 }
+
 $newCat_class->editCatRecord($existingCatDatabaseRecord, $catId);
 
 if (!empty($error_message)) : ?>
@@ -59,15 +58,15 @@ if (!empty($error_message)) : ?>
     <form id="new_cat_form" name="cat_creation" method="post">
         <div class="entry">
             <label>Cat Name</label>
-            <input type="text" name="cat_name" placeholder="<?=$currentCatData['catName']?>" maxlength="30" size="8" />
+            <input type="text" name="cat_name" value="<?=$currentCatData['catName']?>" maxlength="30" size="8" />
         </div>
         <div class="entry">
             <label>Age</label>
-            <input type="number" name="cat_age" placeholder="<?=$currentCatData['age']?>" maxlength="30" size="8" />
+            <input type="number" name="cat_age" value="<?=$currentCatData['age']?>" maxlength="30" size="8" />
         </div>
         <div class="entry">
             <label>Weight</label>
-            <input type="number" name="cat_weight" placeholder="<?=$currentCatData['weight']?>" maxlength="30" size="8" />
+            <input type="number" name="cat_weight" value="<?=$currentCatData['weight']?>" maxlength="30" size="8" />
         </div>
         <div class="entry">
             <label>Gender</label>
@@ -116,7 +115,12 @@ if (!empty($error_message)) : ?>
         </div>
         <div class="entry">
             <label>Does Cat Have Catitude?</label>
-            <input type="number" name="cat_has_catitude" placeholder="<?=$currentCatData['cat_has_catitude']?>" maxlength="30" size="8" />
+            <!--<input type="number" name="cat_has_catitude" value="<?=$currentCatData['cat_has_catitude']?>" maxlength="30" size="8" />-->
+            <select name="cat_has_catitude">
+                <option value="Select Yay or Nay">Select Yay or Nay</option>
+                <option value="0">Nope</option>
+                <option value="1">Yass</option>
+            </select>
         </div>
 
         <div class="entry">

@@ -285,31 +285,18 @@ class Cat {
      * @return string
      */
     public function addCatRecord($catData) {
-        //return $this->database->insertRow($catData);
         $db = Database::getFactory();
         $db->insertRow($catData);
     }
 
-    public function editCatRecord($catData, $id) {
-        $db = Database::getFactory()->getConnection();
-
-        try
-        {
-            $stmt = $db->prepare("UPDATE users (" . implode(', ', array_keys($catData)) . ") VALUES (:" . implode(', :', array_keys($catData)) . ") WHERE id = :id");
-
-            foreach($catData as $key => $value) {
-                $stmt->bindValue($key, $value, PDO::PARAM_STR, ':id', $id);
-                /*
-                 * UPDATE `directory`
-SET `First_Name` = :firstname, `Surname` = :surname, `Nicknames` = :nicknames
-WHERE ID = :cid
-                 */
-            }
-            $stmt->execute();
-            return 'record created successfully';
-        } catch (\PDOException $e) {
-            return 'Adding new record failed' . $e->getMessage();
-        }
+    /**
+     * Update/Edit A Cat Record
+     * * @param $catData
+     * @param $catID
+     */
+    public function editCatRecord($catData, $catID) {
+        $db = Database::getFactory();
+        $db->updateRow($catData, $catID);
     }
 
     public function deleteCat($catID)

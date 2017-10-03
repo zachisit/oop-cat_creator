@@ -170,10 +170,33 @@ class Database
         }
     }
 
-    //update row
-    //changes value of existing row
-    public function updateRow()
+    /**
+     * Update Record Row
+     * @param $data
+     * @return string
+     */
+    public function updateRow($data, $catID)
     {
+        //var_dump($data);
+
+        //@TODO: check if not empty data, etc
+        $db = self::getConnection();
+
+        try
+        {
+            $stmt = $db->prepare("UPDATE users SET " . implode(', :', array_keys($data)) . ") WHERE id = '{$catID}'");
+            //$sql = "UPDATE MyGuests SET lastname='Doe' WHERE id=2";
+
+            print_r($stmt);
+
+            foreach($data as $key => $value) {
+                $stmt->bindValue($key, $value, PDO::PARAM_STR);
+            }
+            $stmt->execute();
+            return 'record created successfully';
+        } catch (\PDOException $e) {
+            return 'Adding new record failed' . $e->getMessage();
+        }
 
     }
 
