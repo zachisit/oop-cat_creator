@@ -45,6 +45,7 @@ if (isset($_POST['update_cat'])) {
         'weight' => $newCatData[3],
         'hasCatittude' => $newCatData[8],
         //@TODO: remove create time as not needed when updating
+        //@TODO: create 'updated' column in db, with timestamp passed in, to show when record last updated - used only in editing records
     ];
 
     new Validation($existingCatDatabaseRecord);
@@ -116,17 +117,17 @@ if (!empty($error_message)) : ?>
         </div>
         <div class="entry">
             <label>Does Cat Have Catitude?</label>
-            <!--<input type="number" name="cat_has_catitude" value="<?=$currentCatData['cat_has_catitude']?>" maxlength="30" size="8" />-->
-            <select name="cat_has_catitude">
-                <option value="Select Yay or Nay">Select Yay or Nay</option>
-                <option value="0">Nope</option>
-                <option value="1">Yass</option>
-            </select>
+            <input type="number" name="cat_has_catitude" value="0" maxlength="30" size="8" />
+    <!--<select name="cat_has_catitude">
+        <option value="Select Yay or Nay">Select Yay or Nay</option>
+        <option value="0">Nope</option>
+        <option value="1">Yass</option>
+    </select>-->
         </div>
 
-        <div class="entry">
-            <input type="submit" value="Update This Cat" id="submit" name="update_cat" />
-        </div>
-    </form>
+<div class="entry">
+    <input type="submit" value="Update This Cat" id="submit" name="update_cat" />
+</div>
+</form>
 
 <?php include "views/footer.php";?>

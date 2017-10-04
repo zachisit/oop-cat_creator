@@ -291,12 +291,12 @@ class Cat {
 
     /**
      * Update/Edit A Cat Record
-     * * @param $catData
+     * @param $catData
      * @param $catID
      */
     public function editCatRecord($catData, $catID) {
         $db = Database::getFactory();
-        $db->updateRow($catData, $catID);
+        $db->updateRow($catData, ['id' => $catID]);
     }
 
     public function deleteCat($catID)

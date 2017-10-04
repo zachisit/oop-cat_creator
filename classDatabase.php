@@ -171,12 +171,62 @@ class Database
     }
 
     /**
+     * Update Record
+     * @param $data
+     * @param $where
+     * @return string
+     */
+    public function updateRow($data, $where)
+    {
+        $db = self::getConnection();
+        var_dump($data);
+        echo '<p></p>';
+        var_dump($where);
+        echo '<p></p>';
+
+        try
+        {
+            $values = [];
+            $qry = "UPDATE users SET";
+            foreach($data as $key => $value) {
+                $qry .= " {$key}=:{$key},";
+                $values[":{$key}"] = $value;
+            }
+            $qry = ltrim($qry, ',');
+
+            if(!empty($where)){
+                $qry .= " WHERE ";
+
+                foreach($where as $key => $value) {
+                    //$qry .= " {$key}=:{$key},";
+                    $qry .= " {$key}=:{$key}";
+                    $values[":{$key}"] = $value;
+                }
+            }
+
+            $stmt = $db->prepare($qry);
+
+            //$stmt->bindParam(':{$key}', $value, PDO::PARAM_STR);
+            $stmt->execute($values);
+
+            print_r($stmt);
+            echo '<p></p>';
+
+            var_dump($stmt->errorInfo());
+        } catch (\PDOException $e) {
+            //return 'Adding new record failed' . $e->getMessage();
+            //@TODO:write to error log
+            return $e;
+        }
+    }
+
+    /**
      * Update Record Row
      * @param $data
      * @param $catID
      * @return string
      */
-    public function updateRow($data, $catID)
+    /*public function updateRow($data, $catID)
     {
         $db = self::getConnection();
 
@@ -201,7 +251,7 @@ class Database
             return 'Adding new record failed' . $e->getMessage();
         }
 
-    }
+    }*/
 
     /**
      * Delete Database Row
