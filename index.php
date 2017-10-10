@@ -15,18 +15,7 @@ $getAllRecords = $test->getAllCats();
 //var_dump($test->getAllCats());
 ?>
     
-<?php
-//$cats_are_brown = $db->getRowsByCategory('gender', 'male');
-?>
-
-
-<?php
-
-//$fetch_all_cats = $this->getAllRows();
-//save into array
-//print_r($fetch_all_cats);
-?>
-<h2 class="page_heading">View Our Current Cats</h2>
+<h2 class="page_heading">View Current Cats</h2>
 <table id="cat_list" class="tablesorter">
     <thead>
     <tr>
@@ -51,10 +40,16 @@ $getAllRecords = $test->getAllCats();
         <?php
         $yes = '1';
 
+
         foreach( $getAllRecords as $record)
         {
             echo '<tr>';
-            echo '<td><i class="fa fa-paw" aria-hidden="true"></i></td>';
+            if ($record['gender'] == 'Female') {
+                echo "<td class='female'>";
+            } else {
+                echo "<td>";
+            }
+            echo '<i class="fa fa-paw" aria-hidden="true"></i></td>';
             echo '<td>' . $record['id'] . '</td>';
             echo '<td>' . $record['catName'] . '</td>';
             echo '<td>' . $record['age'] . '</td>';
@@ -71,7 +66,7 @@ $getAllRecords = $test->getAllCats();
                 echo '<td>Nope</td>';
             }
             echo '<td><a href="edit.php?id=' . $record['id'] . '" title="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
-            echo '<td><i class="fa fa-trash-o" aria-hidden="true"></i></td>';
+            echo '<td><a title="Delete Cat" id="delete_cat"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>';
             echo '</tr>';
         }
         ?>

@@ -100,6 +100,19 @@ form .entry #submit {
 }
 
 /**
+ * Homepage Table Results
+ */
+#cat_list tr .fa-paw:before {
+    color:blue;
+}
+#cat_list tr .female .fa-paw:before {
+    color:pink;
+}
+#cat_list #delete_cat {
+    cursor:hand;
+}
+
+/**
  * Footer
  */
 footer {

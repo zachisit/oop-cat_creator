@@ -5,11 +5,34 @@
  */
 
 jQuery(document).ready(function($) {
+    /*table sorter*/
     $("#cat_list").tablesorter({
         headers: {
             '.no_sort' : {
                 sorter: false
             }
         }
+    });
+
+    /*delete cat from table sorter*/
+    $( "#delete_cat" ).click(function() {
+        /*
+         jQuery.ajax({
+         url: url,
+         type: method,
+         dataType: type,
+         data: data,
+         success: callback
+         });
+         */
+        $.ajax({
+            url: '/views/classCat.php',
+            type: 'deleteCat',
+            success: function(){
+                alert('cat deleted');
+            }
+        });
+
+        return false;
     });
 });
