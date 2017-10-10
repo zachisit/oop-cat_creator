@@ -48,7 +48,7 @@ if (isset($_POST['update_cat'])) {
         'catName' => $newCatData[1],
         'age' => $newCatData[2],
         'gender' => $newCatData[4],
-        'createTime' => $time,
+        'updatedTime' => $time,
         'coloring' => $newCatData[5],
         'hairLength' => $newCatData[7],
         'currentMood' => $newCatData[6],
