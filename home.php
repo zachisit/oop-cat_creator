@@ -32,11 +32,12 @@ if (isset($_POST['create_cat'])) {
         'age' => $_POST['cat_age'],
         'gender' => $_POST['cat_gender'],
         'createTime' => $time,
+        'updatedTime' => $time,
         'coloring' => $_POST['cat_color'],
         'hairLength' => $_POST['cat_hair_length'],
         'currentMood' => $_POST['cat_mood'],
         'weight' => $_POST['cat_weight'],
-        'hasCatittude' => '0',
+        'hasCatittude' => '0'
     ];
 
     new Validation($newCatDatabaseRecord);
@@ -105,7 +106,6 @@ if (!empty($error_message)) : ?>
             endforeach; ?>
         </select>
     </div>
-
     <div class="entry">
         <input type="submit" value="Create Cat Now" id="submit" name="create_cat" />
     </div>

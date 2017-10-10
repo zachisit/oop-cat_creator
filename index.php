@@ -36,6 +36,7 @@ $getAllRecords = $test->getAllCats();
         <td>Age</td>
         <td>Gender</td>
         <td>Date Created</td>
+        <td>Record Updated</td>
         <td>Coloring</td>
         <td>Hair Length</td>
         <td>Current Mood</td>
@@ -59,6 +60,7 @@ $getAllRecords = $test->getAllCats();
             echo '<td>' . $record['age'] . '</td>';
             echo '<td>' . $record['gender'] . '</td>';
             echo '<td>' . $record['createTime'] . '</td>';
+            echo '<td>' . $record['updatedTime'] . '</td>';
             echo '<td>' . $record['coloring'] . '</td>';
             echo '<td>' . $record['hairLength'] . '</td>';
             echo '<td>' . $record['currentMood'] . '</td>';
