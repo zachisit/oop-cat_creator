@@ -16,7 +16,17 @@ $approvedMoods = $newCat_class->setApprovedMood();
 $approvedHairLength = $newCat_class->checkIsHairLengthApproved();
 
 $time = \Cat\Utility::getDateTime();
-
+/*
+ * have function inside cat class called fromID
+ * so cat = Cat::fromID
+ * inside ID pass in id i am editing
+ *
+ * now we have cat object
+ * now we can hve function o update, Cat::uipdate(pass in post array).
+ *
+ * have another function called catSave --- updates/inserts cat in DB
+ * dsim - fromID, save functions -0 look how they work
+ */
 //get id of record from url
 $catId = $_GET['id'];
 $currentCatData = $newCat_class->getSingleCatByID($catId);
@@ -60,6 +70,7 @@ if (!empty($error_message)) : ?>
     <form id="new_cat_form" name="cat_creation" method="post">
         <div class="entry">
             <label>Cat Name</label>
+            <!--$catID->catName:: SHOULD BE THIS-->
             <input type="text" name="cat_name" value="<?=$currentCatData['catName']?>" maxlength="30" size="8" />
         </div>
         <div class="entry">

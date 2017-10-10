@@ -192,21 +192,22 @@ class Database
                 $qry .= " {$key}=:{$key},";
                 $values[":{$key}"] = $value;
             }
-            $qry = ltrim($qry, ',');
+            $qry = rtrim($qry, ',');
 
             if(!empty($where)){
                 $qry .= " WHERE ";
 
                 foreach($where as $key => $value) {
-                    //$qry .= " {$key}=:{$key},";
-                    $qry .= " {$key}=:{$key}";
+                    $qry .= " {$key}=:{$key} AND";
+                    //$qry .= " {$key}=:{$key}";
                     $values[":{$key}"] = $value;
                 }
+
+                $qry = substr($qry, 0, -4);
             }
 
             $stmt = $db->prepare($qry);
 
-            //$stmt->bindParam(':{$key}', $value, PDO::PARAM_STR);
             $stmt->execute($values);
 
             print_r($stmt);
