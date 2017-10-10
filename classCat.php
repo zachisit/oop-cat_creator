@@ -360,4 +360,24 @@ class Cat {
             return $e->getMessage();
         }
     }
+
+    /**
+     * Cat Record Data from ID
+     * @param $id
+     * @return mixed|string
+     */
+    public static function fromID($id)
+    {
+        //@TODO:bind id
+        $getCatRow = Database::getFactory()->getConnection();
+
+        try
+        {
+            $stmt = $getCatRow->prepare("SELECT * FROM users WHERE id=$id");
+            $stmt->execute();
+            return $stmt->fetchObject();
+        } catch (\PDOException $e) {
+            return $e->getMessage();
+        }
+    }
 }

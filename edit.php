@@ -29,15 +29,21 @@ $time = \Cat\Utility::getDateTime();
  */
 //get id of record from url
 $catId = $_GET['id'];
+
 $currentCatData = $newCat_class->getSingleCatByID($catId);
 //var_dump($currentCatData);
+//$ourCat = [];
+$ourCat = \Cat\Cat::fromID($catId);
+
+
+echo 'object cat data:<p></p>';
+var_dump($ourCat);
+echo '<p></p>';
+echo '<p></p>';
 
 $existing_cat_data = [];
 
 if (isset($_POST['update_cat'])) {
-    $newCatData[1] = $_POST['cat_name'];
-    $newCatData[2] = $_POST['cat_age'];
-    $newCatData[3] = $_POST['cat_weight'];
     $newCatData[4] = $_POST['cat_gender'];
     $newCatData[5] = $_POST['cat_color'];
     $newCatData[6] = $_POST['cat_mood'];
@@ -45,17 +51,15 @@ if (isset($_POST['update_cat'])) {
     $newCatData[8] = $_POST['cat_has_catitude'];
 
     $existingCatDatabaseRecord = [
-        'catName' => $newCatData[1],
-        'age' => $newCatData[2],
+        'catName' => $_POST['cat_name'],
+        'age' => $_POST['cat_age'],
         'gender' => $newCatData[4],
         'updatedTime' => $time,
         'coloring' => $newCatData[5],
         'hairLength' => $newCatData[7],
         'currentMood' => $newCatData[6],
-        'weight' => $newCatData[3],
+        'weight' => $_POST['cat_weight'],
         'hasCatittude' => $newCatData[8],
-        //@TODO: remove create time as not needed when updating
-        //@TODO: create 'updated' column in db, with timestamp passed in, to show when record last updated - used only in editing records
     ];
 
     new Validation($existingCatDatabaseRecord);
@@ -66,20 +70,19 @@ $newCat_class->editCatRecord($existingCatDatabaseRecord, $catId);
 if (!empty($error_message)) : ?>
     <div id="error"><p>Error: <?=$error_message?></p></div>
 <?php endif; ?>
-    <h2 class="page_heading">Edit <?=$currentCatData['catName']?> Cat</h2>
+    <h2 class="page_heading">Edit <?=$ourCat->catName?> Cat</h2>
     <form id="new_cat_form" name="cat_creation" method="post">
         <div class="entry">
             <label>Cat Name</label>
-            <!--$catID->catName:: SHOULD BE THIS-->
-            <input type="text" name="cat_name" value="<?=$currentCatData['catName']?>" maxlength="30" size="8" />
+            <input type="text" name="cat_name" value="<?=$ourCat->catName?>" maxlength="30" size="8" />
         </div>
         <div class="entry">
             <label>Age</label>
-            <input type="number" name="cat_age" value="<?=$currentCatData['age']?>" maxlength="30" size="8" />
+            <input type="number" name="cat_age" value="<?=$ourCat->age?>" maxlength="30" size="8" />
         </div>
         <div class="entry">
             <label>Weight</label>
-            <input type="number" name="cat_weight" value="<?=$currentCatData['weight']?>" maxlength="30" size="8" />
+            <input type="number" name="cat_weight" value="<?=$ourCat->weight?>" maxlength="30" size="8" />
         </div>
         <div class="entry">
             <label>Gender</label>
@@ -128,17 +131,15 @@ if (!empty($error_message)) : ?>
         </div>
         <div class="entry">
             <label>Does Cat Have Catitude?</label>
-            <input type="number" name="cat_has_catitude" value="0" maxlength="30" size="8" />
-    <!--<select name="cat_has_catitude">
-        <option value="Select Yay or Nay">Select Yay or Nay</option>
-        <option value="0">Nope</option>
-        <option value="1">Yass</option>
-    </select>-->
+            <select name="cat_has_catitude">
+                <option value="Select Yay or Nay">Select Yay or Nay</option>
+                <option value="0">Nope</option>
+                <option value="1">Yass</option>
+            </select>
         </div>
-
-<div class="entry">
-    <input type="submit" value="Update This Cat" id="submit" name="update_cat" />
-</div>
+        <div class="entry">
+            <input type="submit" value="Update This Cat" id="submit" name="update_cat" />
+        </div>
 </form>
 
 <?php include "views/footer.php";?>

@@ -179,10 +179,10 @@ class Database
     public function updateRow($data, $where)
     {
         $db = self::getConnection();
-        var_dump($data);
-        echo '<p></p>';
-        var_dump($where);
-        echo '<p></p>';
+        //var_dump($data);
+        //echo '<p></p>';
+        //var_dump($where);
+        //echo '<p></p>';
 
         try
         {
@@ -210,10 +210,10 @@ class Database
 
             $stmt->execute($values);
 
-            print_r($stmt);
-            echo '<p></p>';
+            //print_r($stmt);
+            //echo '<p></p>';
 
-            var_dump($stmt->errorInfo());
+            //var_dump($stmt->errorInfo());
         } catch (\PDOException $e) {
             //return 'Adding new record failed' . $e->getMessage();
             //@TODO:write to error log
