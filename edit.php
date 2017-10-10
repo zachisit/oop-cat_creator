@@ -44,22 +44,16 @@ echo '<p></p>';
 $existing_cat_data = [];
 
 if (isset($_POST['update_cat'])) {
-    $newCatData[4] = $_POST['cat_gender'];
-    $newCatData[5] = $_POST['cat_color'];
-    $newCatData[6] = $_POST['cat_mood'];
-    $newCatData[7] = $_POST['cat_hair_length'];
-    $newCatData[8] = $_POST['cat_has_catitude'];
-
     $existingCatDatabaseRecord = [
         'catName' => $_POST['cat_name'],
         'age' => $_POST['cat_age'],
-        'gender' => $newCatData[4],
+        'gender' => $_POST['cat_gender'],
         'updatedTime' => $time,
-        'coloring' => $newCatData[5],
-        'hairLength' => $newCatData[7],
-        'currentMood' => $newCatData[6],
+        'coloring' => $_POST['cat_color'],
+        'hairLength' => $_POST['cat_hair_length'],
+        'currentMood' => $_POST['cat_mood'],
         'weight' => $_POST['cat_weight'],
-        'hasCatittude' => $newCatData[8],
+        'hasCatittude' => $_POST['cat_has_catitude'],
     ];
 
     new Validation($existingCatDatabaseRecord);
@@ -90,7 +84,7 @@ if (!empty($error_message)) : ?>
                 <option value="Select A Gender">Select A Gender</option>
                 <?php foreach ($approvedGenders as $key => $val) :
                     $option = '<option value="'.$key.'"';
-                    $option .= ($key == $newCatData[4]) ? ' selected' : '';
+                    $option .= ($key == $ourCat->gender) ? ' selected' : '';
                     $option .= ">{$key}</option>";
                     echo $option;
                 endforeach; ?>
@@ -102,7 +96,7 @@ if (!empty($error_message)) : ?>
                 <option value="Select A Color">Select A Color</option>
                 <?php foreach ($approvedColors as $key => $val) :
                     $option = '<option value="'.$key.'"';
-                    $option .= ($key == $newCatData[5]) ? ' selected' : '';
+                    $option .= ($key == $ourCat->coloring) ? ' selected' : '';
                     $option .= ">{$key}</option>";
                     echo $option;
                 endforeach; ?>
@@ -114,7 +108,7 @@ if (!empty($error_message)) : ?>
                 <option value="Select A Mood">Select A Mood</option>
                 <?php foreach ($approvedMoods as $key => $val) :
                     $option = '<option value="'.$key.'"';
-                    $option .= ($key == $newCatData[6]) ? ' selected' : '';
+                    $option .= ($key == $ourCat->currentMood) ? ' selected' : '';
                     $option .= ">{$key}</option>";
                     echo $option;
                 endforeach; ?>
@@ -125,7 +119,10 @@ if (!empty($error_message)) : ?>
             <select name="cat_hair_length">
                 <option value="Select A Hair Length">Select A Hair Length</option>
                 <?php foreach ($approvedHairLength as $key => $val) :
-                    echo "<option value='".$val."'>".$val."</option>";
+                    $option = '<option value="'.$val.'"';
+                    $option .= ($val == $ourCat->hairLength) ? ' selected' : '';
+                    $option .= ">{$val}</option>";
+                    echo $option;
                 endforeach; ?>
             </select>
         </div>
