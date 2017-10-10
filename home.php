@@ -28,15 +28,15 @@ if (isset($_POST['create_cat'])) {
     $newCatData[8] = $_POST['cat_has_catitude'];
 
     $newCatDatabaseRecord = [
-        'catName' => $newCatData[1],
-        'age' => $newCatData[2],
-        'gender' => $newCatData[4],
+        'catName' => $_POST['cat_name'],
+        'age' => $_POST['cat_age'],
+        'gender' => $_POST['cat_gender'],
         'createTime' => $time,
-        'coloring' => $newCatData[5],
-        'hairLength' => $newCatData[7],
-        'currentMood' => $newCatData[6],
-        'weight' => $newCatData[3],
-        'hasCatittude' => $newCatData[8],
+        'coloring' => $_POST['cat_color'],
+        'hairLength' => $_POST['cat_hair_length'],
+        'currentMood' => $_POST['cat_mood'],
+        'weight' => $_POST['cat_weight'],
+        'hasCatittude' => '0',
     ];
 
     new Validation($newCatDatabaseRecord);
@@ -109,7 +109,6 @@ if (!empty($error_message)) : ?>
     <div class="entry">
         <input type="submit" value="Create Cat Now" id="submit" name="create_cat" />
     </div>
-    <input type="hidden" name="cat_has_catitude" value="0" />
 </form>
 
 <?php include "views/footer.php";?>
