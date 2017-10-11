@@ -11,11 +11,39 @@ $test = new Cat();
 
 $getAllRecords = $test->getAllCats();
 
-//var_dump($getAllRecords);
-//var_dump($test->getAllCats());
+$howManyCats = count($getAllRecords);//how many total cats?
 ?>
+    <script>
+        var num = <?=$howManyCats?>;
+$(function() {
+    var html = [];
+    for (var i = 0; i < num; i++) {
+        //html.push('<div id="cat' + i + '">' + i + '</div>');
+        html.push('<div class="cat"></div>');
+    }
+    $("#container").append(html.join('')); // append all in one go
+
+    });
+</script>
+<style>
+    #container {
+        float:left;
+        width:100%;
+        display:none;
+    }
+    .cat {
+        width:20px;
+        height:9px;
+        background:red;
+        display:block;
+        margin:1em;
+        float:left;
+    }
+</style>
+<div id="container"></div>
     
 <h2 class="page_heading">View Current Cats</h2>
+    <p><?=$howManyCats?> total</p>
 <table id="cat_list" class="tablesorter">
     <thead>
     <tr>

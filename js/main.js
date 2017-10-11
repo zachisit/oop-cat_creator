@@ -26,8 +26,8 @@ jQuery(document).ready(function($) {
          });
          */
         $.ajax({
-            url: '/views/classCat.php',
-            type: 'deleteCat',
+            url: '/deleteCat.php',
+            type: 'DELETE',
             success: function(){
                 alert('cat deleted');
             }
