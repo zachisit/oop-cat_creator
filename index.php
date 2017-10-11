@@ -40,7 +40,15 @@ $(function() {
         float:left;
     }
 </style>
-<div id="container"></div>
+<div id="container">
+
+    <ul>
+        <li><a href="" title="New Pet">New Pet</a></li>
+        <li><a href="" title="All Pets">All Pets</a></li>
+        <li><a href="" title="Search Pets">Search Pets</a></li>
+        <li><a href="" title="Settings">Settings</a></li>
+    </ul>
+</div>
     
 <h2 class="page_heading">View Current Cats</h2>
     <p><?=$howManyCats?> total</p>
@@ -59,6 +67,7 @@ $(function() {
         <td>Current Mood</td>
         <td>Weight</td>
         <td>Have Catittude?</td>
+        <td class="no_sort">View</td>
         <td class="no_sort">Edit</td>
         <td class="no_sort">Delete</td>
     </tr>
@@ -93,8 +102,9 @@ $(function() {
             } else {
                 echo '<td>Nope</td>';
             }
-            echo '<td><a href="edit.php?id=' . $record['id'] . '" title="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
-            echo '<td><a title="Delete Cat" id="delete_cat"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>';
+            echo '<td class="icon"><a href="view.php?id=' . $record['id'] . '" title="edit"><i class="fa fa-eye" aria-hidden="true"></i></a>';
+            echo '<td class="icon"><a href="edit.php?id=' . $record['id'] . '" title="edit"><i class="fa fa-pencil" aria-hidden="true"></i></a>';
+            echo '<td class="icon"><a title="Delete Cat" id="delete_cat"><i class="fa fa-trash-o" aria-hidden="true"></i></a></td>';
             echo '</tr>';
         }
         ?>

@@ -104,12 +104,21 @@ form .entry #submit {
  */
 #cat_list tr .fa-paw:before {
     color:blue;
+    font-size:18px;
 }
 #cat_list tr .female .fa-paw:before {
     color:pink;
+    font-size:18px;
 }
 #cat_list #delete_cat {
     cursor:hand;
+}
+#cat_list td.icon {
+    text-align:center;
+}
+#cat_list a .fa {
+    color:#333;
+    font-size:18px;
 }
 
 /**
