@@ -9,12 +9,12 @@ $errorMsgLogin = '';
 if (!empty($_POST['loginSubmit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    //$url=BASE_URL.'home.php';
-    $url = 'home.php';
-    echo $username;
-    echo $password;
+    //$url=BASE_URL.'index.php';
+    $url = 'index.php';
+    echo 'username typed in: '. $username;
+    echo '<br />password typed in :'. $password;
 
-    if(strlen(trim($username))>1 && strlen(trim($password))>1 ) {
+    //if(strlen(trim($username))>1 && strlen(trim($password))>1 ) {
         $uid = $userLogin->userLogin($username, $password);
 
         if ($uid) {
@@ -24,7 +24,7 @@ if (!empty($_POST['loginSubmit'])) {
             $errorMsgLogin = 'Your username or password is not correct.';
             error_log('incorrect login', 0);
         }
-    }
+    //}
 } ?>
 <?=$successMessage?>
 <div id="login">

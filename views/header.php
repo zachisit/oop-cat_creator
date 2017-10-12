@@ -23,6 +23,7 @@
 </div>
 
 <?php
-include_once('../session.php');$userDetails=$userClass->userDetails($session_uid);
+include_once('../session.php');
+//@TODO:create userLogin object, used below to get name
 ?>
-<h1>Welcome <?php echo $userDetails->name; ?></h1>
+<!--<h1>Welcome <?=$userDetails->name; ?></h1>-->

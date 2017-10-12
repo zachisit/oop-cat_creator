@@ -36,6 +36,7 @@ class userClass
             $count=$stmt->rowCount();
             $data=$stmt->fetch(PDO::FETCH_OBJ);
             $db = null;
+
             if($count) {
                 $_SESSION['uid']=$data->uid; //storing user session value
                 return true;
@@ -45,6 +46,7 @@ class userClass
             }
         } catch(\PDOException $e) {
             echo '{"error":{"text":'. $e->getMessage() .'}}';
+            error_log('db connection issue', 0);
         }
 
     }
