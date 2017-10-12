@@ -7,7 +7,7 @@ $successMessage = '';//not needed once we do redirecting, used to test
 $errorMsgLogin = '';
 
 if (!empty($_POST['loginSubmit'])) {
-    $username = $_POST['usernameEmail'];
+    $username = $_POST['username'];
     $password = $_POST['password'];
     //$url=BASE_URL.'home.php';
     $url = 'home.php';
@@ -22,6 +22,7 @@ if (!empty($_POST['loginSubmit'])) {
             header("Location: $url"); //send to home after login success
         } else {
             $errorMsgLogin = 'Your username or password is not correct.';
+            error_log('incorrect login', 0);
         }
     }
 } ?>

@@ -30,8 +30,8 @@ class userClass
             $stmt = $db->prepare("SELECT uid FROM userLogin WHERE userName=:username AND userPass=:password");
 
             //@TODO:hash salt password
-            $stmt->bindParam('username', $username,PDO::PARAM_STR) ;
-            $stmt->bindParam('password', $password,PDO::PARAM_STR) ;
+            $stmt->bindParam(':username', $username,PDO::PARAM_STR) ;
+            $stmt->bindParam(':password', $password,PDO::PARAM_STR) ;
             $stmt->execute();
             $count=$stmt->rowCount();
             $data=$stmt->fetch(PDO::FETCH_OBJ);
