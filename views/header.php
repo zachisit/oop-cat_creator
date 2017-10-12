@@ -21,3 +21,8 @@
         <li><a href="home.php" title="add new cat"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
     </ul>
 </div>
+
+<?php
+include_once('../session.php');$userDetails=$userClass->userDetails($session_uid);
+?>
+<h1>Welcome <?php echo $userDetails->name; ?></h1>

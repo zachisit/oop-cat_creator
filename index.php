@@ -158,7 +158,7 @@ echo $rex->getName(). 'is currently ' . $rex->getMood() . '!';
 echo "<br />";
 echo "<br />";
 
-//@TODO: i am torn if i should move this to a class method, or if i should leave in this page. i guess it will depend on how this app evolves when we start creating the user input phase
+//@TODO: i am torn if i should move this to a class method, or if i should leave in this page. i guess it will depend on how this app evolves when we start creating the userClass input phase
 switch( $rex->getMood() ) {
     case 'grumpy':
         echo 'Uh oh, watch out - '. $rex->getName() .' is grumpy!';
@@ -194,7 +194,7 @@ echo "<br />";
 //echo $rex->getCatitudeStatus();
 /*
  * hide all below
-//@TODO: i am torn if i should move this to a class method, or if i should leave in this page. i guess it will depend on how this app evolves when we start creating the user input phase
+//@TODO: i am torn if i should move this to a class method, or if i should leave in this page. i guess it will depend on how this app evolves when we start creating the userClass input phase
 switch($rex->getCatitudeStatus()) {
     case 0:
         echo 'currently '. $rex->getName() . ' does not have catitude. what a bummer.<br />';
@@ -206,7 +206,7 @@ switch($rex->getCatitudeStatus()) {
 
 echo "<br />";
 $tater->setHasCatitude(1);
-//@TODO: i am torn if i should move this to a class method, or if i should leave in this page. i guess it will depend on how this app evolves when we start creating the user input phase
+//@TODO: i am torn if i should move this to a class method, or if i should leave in this page. i guess it will depend on how this app evolves when we start creating the userClass input phase
 switch($tater->getCatitudeStatus()) {
     case 0:
         echo 'currently '. $tater->getName() . ' does not have catitude. what a bummer.<br />';
