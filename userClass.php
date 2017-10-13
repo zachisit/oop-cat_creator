@@ -12,6 +12,15 @@ use PDOException;
 
 class userClass
 {
+    protected $username;
+    protected $password;
+
+    public function __construct($username, $password)
+    {
+        $this->username = $username;
+        $this->password = $password;
+    }
+
     /**
      * User Login
      * @param $usernameEmail
@@ -60,7 +69,7 @@ class userClass
     {
         try{
             $db = Database::getFactory()->getConnection();
-            $stmt = $db->prepare("SELECT email,username,name FROM userLogin WHERE uid=:uid");
+            $stmt = $db->prepare("SELECT email FROM userLogin WHERE uid=:uid");
             $stmt->bindParam("uid", $uid,PDO::PARAM_INT);
             $stmt->execute();
             $data = $stmt->fetch(PDO::FETCH_OBJ); //user data
@@ -69,5 +78,23 @@ class userClass
         catch(PDOException $e) {
             echo '{"error":{"text":'. $e->getMessage() .'}}';
         }
+    }
+
+    /**
+     * Create Password
+     * @param int $length
+     * @return string
+     */
+    private function createPassword($length = 50)
+    {
+        //create random password with 8 alpha characters
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+        $string = '';
+
+        for ($p = 0; $p < $length; $p++) {
+            $string .= $characters[mt_rand(0, strlen($characters))];
+        }
+
+        return $string;
     }
 }
