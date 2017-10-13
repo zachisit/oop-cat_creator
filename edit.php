@@ -36,10 +36,10 @@ $currentCatData = $newCat_class->getSingleCatByID($catId);
 $ourCat = \Cat\Cat::fromID($catId);
 
 
-echo 'object cat data:<p></p>';
-var_dump($ourCat);
-echo '<p></p>';
-echo '<p></p>';
+//echo 'object cat data:<p></p>';
+//var_dump($ourCat);
+//echo '<p></p>';
+//echo '<p></p>';
 
 $existing_cat_data = [];
 

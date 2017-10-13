@@ -380,4 +380,11 @@ class Cat {
             return $e->getMessage();
         }
     }
+
+    public function getAllCatsBy($params)
+    {
+        //get cat specific data
+        //i.e., get all cats that are male,
+        //get all cats that are adopted, etc
+    }
 }

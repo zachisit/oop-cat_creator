@@ -19,6 +19,8 @@
     <ul id="navigation">
         <li><a href="index.php" title="home"><i class="fa fa-home" aria-hidden="true"></i></a></li>
         <li><a href="home.php" title="add new cat"><i class="fa fa-plus-circle" aria-hidden="true"></i></a></li>
+        <li><a href="" title="Log Out"><i class="fa fa-sign-out" aria-hidden="true"></i></a>
+        </li>
     </ul>
 </div>
 
@@ -35,6 +37,6 @@
 
 session_start();
 $_SESSION['test'] = '343';
-echo $_SESSION['test'];
+echo 'test session is: ' .$_SESSION['test'];
 ?>
 <!--<h1>Welcome <?//=$userDetails->name; ?></h1>-->
