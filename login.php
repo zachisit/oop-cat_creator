@@ -12,8 +12,6 @@ if (!empty($_POST['loginSubmit'])) {
     $password = $_POST['password'];
     //$url=BASE_URL.'index.php';
     $url = 'index.php';
-    echo 'username typed in: '. $username;
-    echo '<br />password typed in :'. $password;
 
     if (isset($username) || isset($password)) {
         $uid = $userLogin->userLogin($username, $password);

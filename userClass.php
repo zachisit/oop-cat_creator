@@ -46,11 +46,10 @@ class userClass
             $data=$stmt->fetch(PDO::FETCH_OBJ);
             $db = null;
 
-            if($count) {
+            if ($count) {
                 $_SESSION['uid']=$data->uid; //storing user session value
                 return true;
             } else {
-                error_log("user login incorrect", 0);
                 return false;
             }
         } catch(\PDOException $e) {

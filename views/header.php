@@ -23,14 +23,18 @@
 </div>
 
 <?php
-//include_once('../session.php');
-//@TODO:move this into session.php
-//$l = $_SESSION['uid'];
-//echo $l;
+//include_once('/www-data/sandboxes/zsmith/web/content/cat_creator/session.php');
 
+//include_once('../userClass.php');//should be removed when session.php works
+//$userClass = new \Cat\userClass();//should be removed when session.php works
 
 //@TODO:create userLogin object, used below to get name
-//$userDetails = new \Cat\userClass();
-//$userDetails->userDetails($uid);
+//include_once('../userClass.php');//should be removed when session.php works
+//$userClass = new \Cat\userClass();//should be removed when session.php works
+//$userDetails = $userClass->userDetails($uid);
+
+session_start();
+$_SESSION['test'] = '343';
+echo $_SESSION['test'];
 ?>
 <!--<h1>Welcome <?//=$userDetails->name; ?></h1>-->
