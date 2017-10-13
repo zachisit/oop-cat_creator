@@ -1,6 +1,9 @@
 <?php
+require_once 'config.php';
 include_once('userClass.php');
-include_once ('classUtility.php');
+include_once('classUtility.php');
+
+session_start();
 
 $userLogin = new \Cat\userClass();
 $timeStamp = \Cat\Utility::getDateTime();
@@ -10,19 +13,22 @@ $errorMsgLogin = '';
 if (!empty($_POST['loginSubmit'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
-    //$url=BASE_URL.'index.php';
-    $url = 'index.php';
+    $url=BASE_URL.'index.php';
 
     if (isset($username) || isset($password)) {
         $uid = $userLogin->userLogin($username, $password);
 
         if ($uid) {
-            $successMessage = 'Your username or password is correct. Yay';
             header("Location: $url");
+
         } else {
             $errorMsgLogin = 'Your username or password is not correct.';
             error_log('incorrect login for: '. $username . 'at '. $timeStamp, 0);
+            //@TODO:create alertAdmin class that sends email
+            //to admin, and email admin when someone can't login
         }
+    } else {
+        $errorMsgLogin = 'Missing username or password';
     }
 } ?>
 <div id="login">

@@ -4,9 +4,9 @@
  * used for user login primarily
  */
 
-namespace Cat;
+namespace Cat;//shouldnt be in this namespace, maybe User
 
-require 'classDatabase.php';
+require_once 'classDatabase.php';
 use PDO;
 use PDOException;
 
@@ -66,6 +66,10 @@ class userClass
      */
     public function userDetails($uid)
     {
+        /**
+         * instead of getFactory set up something
+         * lik getRow, updateRow
+         */
         try{
             $db = Database::getFactory()->getConnection();
             $stmt = $db->prepare("SELECT email FROM userLogin WHERE uid=:uid");

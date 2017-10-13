@@ -10,7 +10,7 @@ namespace Cat;
 use PDO;
 use PDOException;
 
-include 'config.php';
+require_once 'config.php';
 
 class Database
 {

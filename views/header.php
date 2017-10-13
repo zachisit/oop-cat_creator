@@ -25,7 +25,6 @@
 </div>
 
 <?php
-//include_once('/www-data/sandboxes/zsmith/web/content/cat_creator/session.php');
 
 //include_once('../userClass.php');//should be removed when session.php works
 //$userClass = new \Cat\userClass();//should be removed when session.php works
@@ -35,8 +34,5 @@
 //$userClass = new \Cat\userClass();//should be removed when session.php works
 //$userDetails = $userClass->userDetails($uid);
 
-session_start();
-$_SESSION['test'] = '343';
-echo 'test session is: ' .$_SESSION['test'];
 ?>
 <!--<h1>Welcome <?//=$userDetails->name; ?></h1>-->

@@ -4,9 +4,17 @@
  */
 namespace Cat;
 
-include "views/header.php";
+session_start();
+
+require_once 'config.php';
+require_once 'session.php';
+include "views/header.php"; //echos to screen
 require_once "classCat.php";
 
+/*
+ * require = functions
+ * include - templates
+ */
 $test = new Cat();
 
 $getAllRecords = $test->getAllCats();

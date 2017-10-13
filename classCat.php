@@ -6,7 +6,7 @@
 
 namespace Cat;
 
-require 'classDatabase.php';
+require_once 'classDatabase.php';
 
 class Cat {
     //main variables
