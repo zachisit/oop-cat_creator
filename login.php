@@ -1,9 +1,10 @@
 <?php
 include_once('userClass.php');
+include_once ('classUtility.php');
 
 $userLogin = new \Cat\userClass();
+$timeStamp = \Cat\Utility::getDateTime();
 
-$successMessage = '';//not needed once we do redirecting, used to test
 $errorMsgLogin = '';
 
 if (!empty($_POST['loginSubmit'])) {
@@ -14,19 +15,18 @@ if (!empty($_POST['loginSubmit'])) {
     echo 'username typed in: '. $username;
     echo '<br />password typed in :'. $password;
 
-    //if(strlen(trim($username))>1 && strlen(trim($password))>1 ) {
+    if (isset($username) || isset($password)) {
         $uid = $userLogin->userLogin($username, $password);
 
         if ($uid) {
             $successMessage = 'Your username or password is correct. Yay';
-            header("Location: $url"); //send to home after login success
+            header("Location: $url");
         } else {
             $errorMsgLogin = 'Your username or password is not correct.';
-            error_log('incorrect login', 0);
+            error_log('incorrect login for: '. $username . 'at '. $timeStamp, 0);
         }
-    //}
+    }
 } ?>
-<?=$successMessage?>
 <div id="login">
     <h1>Login</h1>
     <form method="post" action="" name="login">

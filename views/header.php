@@ -25,12 +25,12 @@
 <?php
 //include_once('../session.php');
 //@TODO:move this into session.php
-$l = $_SESSION['uid'];
-echo $l;
+//$l = $_SESSION['uid'];
+//echo $l;
 
 
 //@TODO:create userLogin object, used below to get name
 //$userDetails = new \Cat\userClass();
 //$userDetails->userDetails($uid);
 ?>
-<!--<h1>Welcome <?=$userDetails->name; ?></h1>-->
+<!--<h1>Welcome <?//=$userDetails->name; ?></h1>-->
